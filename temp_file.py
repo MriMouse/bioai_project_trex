@@ -1,0 +1,501 @@
+﻿from random import randrange as rnd
+from itertools import cycle
+from random import choice, seed
+from PIL import Image
+import pygame
+import time
+
+# 鍥哄畾闅忔満绉嶅瓙甯搁噺
+DEFAULT_SEED = 42
+
+
+# Game涓荤被锛屾敮鎸丄I鍜屼汉绫讳袱绉嶆ā寮?
+class TRexGame:
+    def __init__(self, human_mode=False, random_seed=DEFAULT_SEED):
+        pygame.init()
+        pygame.font.init()  # Initialize font module
+        self.font = pygame.font.Font(None, 36)  # Default font, size 36
+        self.small_font = pygame.font.Font(None, 28)
+        self.speed = 4  # Initial game speed
+        self.human_mode = human_mode
+        self.score = 0
+        self.random_seed = random_seed
+        # 璁剧疆闅忔満绉嶅瓙
+        seed(self.random_seed)
+        self._init_resources()  # Initializes self.ground_img among others
+        self.reset()
+
+    def _init_resources(self):
+        # Player sprites
+        self.player_init = Image.open("resources.png").crop((77, 5, 163, 96)).convert("RGBA")
+        self.player_init = self.player_init.resize(list(map(lambda x: x // 2, self.player_init.size)))
+
+        self.player_frame_1 = Image.open("resources.png").crop((1679, 2, 1765, 95)).convert("RGBA")  # Standing/jumping
+        self.player_frame_1 = self.player_frame_1.resize(list(map(lambda x: x // 2, self.player_frame_1.size)))
+
+        self.player_frame_2 = Image.open("resources.png").crop((1767, 2, 1853, 95)).convert("RGBA")
+        self.player_frame_2 = self.player_frame_2.resize(list(map(lambda x: x // 2, self.player_frame_2.size)))
+
+        self.player_frame_3 = Image.open("resources.png").crop((1855, 2, 1941, 95)).convert("RGBA")  # Running
+        self.player_frame_3 = self.player_frame_3.resize(list(map(lambda x: x // 2, self.player_frame_3.size)))
+
+        self.player_frame_31 = Image.open("resources.png").crop((1943, 2, 2029, 95)).convert("RGBA")  # Running
+        self.player_frame_31 = self.player_frame_31.resize(list(map(lambda x: x // 2, self.player_frame_31.size)))
+
+        self.player_frame_4 = Image.open("resources.png").crop((2030, 2, 2117, 95)).convert("RGBA")  # Crashed
+        self.player_frame_4 = self.player_frame_4.resize(list(map(lambda x: x // 2, self.player_frame_4.size)))
+
+        self.player_frame_5 = Image.open("resources.png").crop((2207, 2, 2323, 95)).convert("RGBA")  # Crouching
+        self.player_frame_5 = self.player_frame_5.resize(list(map(lambda x: x // 2, self.player_frame_5.size)))
+
+        self.player_frame_6 = Image.open("resources.png").crop((2324, 2, 2441, 95)).convert("RGBA")  # Crouching
+        self.player_frame_6 = self.player_frame_6.resize(list(map(lambda x: x // 2, self.player_frame_6.size)))
+
+        # Environment
+        self.cloud_img = Image.open("resources.png").crop((166, 2, 257, 29)).convert("RGBA")
+        self.cloud_img = self.cloud_img.resize(list(map(lambda x: x // 2, self.cloud_img.size)))
+
+        self.ground_img = Image.open("resources.png").crop((2, 102, 2401, 127)).convert("RGBA")
+        self.ground_img = self.ground_img.resize(list(map(lambda x: x // 2, self.ground_img.size)))
+
+        # Obstacles - Cacti
+        self.obstacle1_img = Image.open("resources.png").crop((446, 2, 479, 71)).convert("RGBA")
+        self.obstacle1_img = self.obstacle1_img.resize(list(map(lambda x: x // 2, self.obstacle1_img.size)))
+
+        self.obstacle2_img = Image.open("resources.png").crop((446, 2, 547, 71)).convert("RGBA")
+        self.obstacle2_img = self.obstacle2_img.resize(list(map(lambda x: x // 2, self.obstacle2_img.size)))
+
+        self.obstacle3_img = Image.open("resources.png").crop((446, 2, 581, 71)).convert("RGBA")
+        self.obstacle3_img = self.obstacle3_img.resize(list(map(lambda x: x // 2, self.obstacle3_img.size)))
+
+        self.obstacle4_img = Image.open("resources.png").crop((653, 2, 701, 101)).convert("RGBA")  # Large cactus
+        self.obstacle4_img = self.obstacle4_img.resize(list(map(lambda x: x // 2, self.obstacle4_img.size)))
+
+        self.obstacle5_img = Image.open("resources.png").crop((653, 2, 749, 101)).convert("RGBA")  # Large cactus
+        self.obstacle5_img = self.obstacle5_img.resize(list(map(lambda x: x // 2, self.obstacle5_img.size)))
+
+        self.obstacle6_img = Image.open("resources.png").crop((851, 2, 950, 101)).convert("RGBA")  # Large cactus
+        self.obstacle6_img = self.obstacle6_img.resize(list(map(lambda x: x // 2, self.obstacle6_img.size)))
+
+        self.cactus_obstacles = [
+            self.obstacle1_img,
+            self.obstacle2_img,
+            self.obstacle3_img,
+            self.obstacle4_img,
+            self.obstacle5_img,
+            self.obstacle6_img,
+        ]
+        self.large_cactus_group = [self.obstacle4_img, self.obstacle5_img, self.obstacle6_img]
+
+        # Obstacles - Birds (Pterodactyls)
+        self.pterodactyl_f1_img = Image.open("resources.png").crop((262, 2, 262 + 90, 2 + 78)).convert("RGBA")
+        self.pterodactyl_f1_img = self.pterodactyl_f1_img.resize(
+            list(map(lambda x: x // 2, self.pterodactyl_f1_img.size))
+        )
+        self.pterodactyl_f2_img = Image.open("resources.png").crop((352, 2, 352 + 90, 2 + 78)).convert("RGBA")
+        self.pterodactyl_f2_img = self.pterodactyl_f2_img.resize(
+            list(map(lambda x: x // 2, self.pterodactyl_f2_img.size))
+        )
+        self.pterodactyl_sprites = [self.pterodactyl_f1_img, self.pterodactyl_f2_img]
+        self.bird_altitudes = [115 - 35, 115 - 15, 115 + 5]
+
+        self.all_obstacle_types = self.cactus_obstacles + self.pterodactyl_sprites
+
+        self.speed_identifier = lambda x: 2 if x >= 30 else 8 if x < 8 else 5    def _convert_pil_to_pygame(self, pil_image):
+        return pygame.image.fromstring(pil_image.tobytes(), pil_image.size, "RGBA")
+
+    def reset(self):
+        # 閲嶇疆闅忔満绉嶅瓙锛岀‘淇濇瘡娆￠噸缃悗鐢熸垚鐨勫湴鍥剧浉鍚?
+        seed(self.random_seed)
+        
+        self.cust_speed = self.speed_identifier(self.speed)
+        self.running_animation = cycle(
+            [self.player_frame_3] * self.cust_speed + [self.player_frame_31] * self.cust_speed
+        )
+        self.crouch_animation = cycle([self.player_frame_5] * self.cust_speed + [self.player_frame_6] * self.cust_speed)
+        self.bird_animation = cycle([self.pterodactyl_f1_img] * 15 + [self.pterodactyl_f2_img] * 15)
+
+        self.gameDisplay = pygame.display.set_mode((600, 200))
+        pygame.display.set_caption("T-Rex Runner")
+        self.clock = pygame.time.Clock()
+
+        self.current_player_sprite = self.player_frame_1
+        self.crashed = False
+        self.done = False
+        self.display_game_over_screen = False
+
+        self.lock_bg_scroll = False
+        self.bg_x = 0
+        self.bg1_x = self.ground_img.width
+
+        # AI妯″紡鑷姩寮€濮?
+        if not self.human_mode:
+            self.start_game_action = True
+        else:
+            self.start_game_action = False
+
+        self.player_y = 110
+        self.is_jumping = False
+        self.is_crouching = False
+        self.fast_fall = False
+        self.vertical_velocity = 0
+
+        self.clouds = []
+        for _ in range(4):
+            self.clouds.append([rnd(0, 600), rnd(0, 100)])
+
+        self.active_obstacles = []
+        self._spawn_initial_obstacles()
+
+        self.score = 0
+        self.game_speed = self.speed
+
+        # 杩斿洖鍒濆鐘舵€?
+        return self.get_state()
+
+    def _check_if_obstacle_is_passable(self, obs_img, y_pos, is_bird):
+        """妫€鏌ラ殰纰嶇墿鏄惁鍙互琚帺瀹堕€氳繃锛堣烦杩囨垨韫蹭笅锛?""
+        # 鐜╁鍩烘湰鍙傛暟
+        player_height_standing = self.player_frame_1.height  # 绾?5鍍忕礌
+        player_height_crouching = self.player_frame_5.height  # 绾?0鍍忕礌
+        player_width = self.player_frame_1.width  # 绾?3鍍忕礌
+        player_x = 5  # 鐜╁鍥哄畾x浣嶇疆
+
+        # 璺宠穬鍙傛暟
+        jump_height = 70  # 澶х害璺宠穬楂樺害
+        jump_duration_frames = 25  # 璺宠穬鎸佺画甯ф暟
+
+        # 闅滅鐗╁弬鏁?
+        obstacle_width = obs_img.width
+        obstacle_height = obs_img.height
+
+        # 妫€鏌ヨ烦璺冩槸鍚﹀彲浠ラ€氳繃
+        if not is_bird:
+            # 浠欎汉鎺岀殑鎯呭喌
+            # 濡傛灉闅滅鐗╅珮搴﹀皬浜庣帺瀹惰烦璺冮珮搴︼紝鍒欏彲閫氳繃
+            if obstacle_height + (115 - y_pos) < jump_height:
+                return True
+        else:
+            # 楦熺殑鎯呭喌
+            bird_altitude = y_pos
+
+            # 妫€鏌ラ笩鏄惁鍦ㄩ珮澶?(鍙互閫氳繃韫蹭笅閫氳繃)
+            if bird_altitude < 85:  # 楦熷湪瓒冲楂樼殑浣嶇疆锛屽彲浠ラ€氳繃韫蹭笅閫氳繃
+                return True
+
+            # 妫€鏌ラ笩鏄惁鍦ㄤ綆澶?(鍙互閫氳繃璺宠穬閫氳繃)
+            if bird_altitude > 95:  # 楦熷湪瓒冲浣庣殑浣嶇疆锛屽彲浠ラ€氳繃璺宠穬閫氳繃
+                return True
+
+        # 榛樿锛氱敓鎴愪竴涓彲閫氳繃鐨勫皬浠欎汉鎺岋紙淇濆簳瑙ｅ喅鏂规锛?
+        return False
+
+    def _spawn_obstacle(self, x_pos):
+        """鐢熸垚闅滅鐗╋紝骞剁‘淇濆畠鏄彲閫氳繃鐨?""
+        # 灏濊瘯鐢熸垚涓€涓彲閫氳繃鐨勯殰纰嶇墿
+        max_attempts = 10
+        for _ in range(max_attempts):
+            chosen_obj_img = choice(self.all_obstacle_types)
+            y_pos = 130
+            is_bird = False
+
+            if chosen_obj_img in self.pterodactyl_sprites:
+                is_bird = True
+                y_pos = choice(self.bird_altitudes)
+                actual_img_for_collision = self.pterodactyl_f1_img
+            elif chosen_obj_img in self.large_cactus_group:
+                y_pos = 115
+                actual_img_for_collision = chosen_obj_img
+            else:
+                actual_img_for_collision = chosen_obj_img
+
+            # 妫€鏌ユ闅滅鐗╂槸鍚﹀彲閫氳繃
+            if self._check_if_obstacle_is_passable(actual_img_for_collision, y_pos, is_bird):
+                # 淇濊瘉is_bird瀛楁濮嬬粓瀛樺湪
+                return {"x": x_pos, "y": y_pos, "img": actual_img_for_collision, "is_bird": is_bird, "passed": False}
+
+        # 濡傛灉澶氭灏濊瘯閮藉け璐ワ紝鍒欑敓鎴愪竴涓粯璁ょ殑灏忎粰浜烘帉锛堣偗瀹氬彲閫氳繃锛?
+        default_obstacle = self.obstacle1_img  # 鏈€灏忕殑浠欎汉鎺?
+        return {"x": x_pos, "y": 130, "img": default_obstacle, "is_bird": False, "passed": False}
+
+    def _spawn_initial_obstacles(self):
+        self.active_obstacles = []
+        self.active_obstacles.append(self._spawn_obstacle(rnd(600, 800)))
+        self.active_obstacles.append(self._spawn_obstacle(self.active_obstacles[0]["x"] + rnd(300, 500)))
+        self.active_obstacles.append(self._spawn_obstacle(self.active_obstacles[1]["x"] + rnd(300, 500)))
+
+    def get_state(self):
+        player_x_pos = 5  # 鐜╁x鍧愭爣
+        # 榛樿闅滅鐗╃粨鏋?
+        default_obs_val = {
+            "x": 999 + player_x_pos,
+            "y": 130,
+            "img": self.obstacle1_img,
+            "is_bird": False,
+            "passed": True,
+        }
+        obs1 = self.active_obstacles[0] if len(self.active_obstacles) > 0 else default_obs_val
+        obs2 = self.active_obstacles[1] if len(self.active_obstacles) > 1 else default_obs_val
+        return {
+            "player_y": self.player_y,
+            "player_vertical_velocity": self.vertical_velocity,
+            "is_crouching": self.is_crouching,
+            "obs1_dist_x": obs1["x"] - player_x_pos,
+            "obs1_y": obs1["y"],
+            "obs1_width": obs1["img"].width,
+            "obs1_height": obs1["img"].height,
+            "obs1_is_bird": obs1["is_bird"],
+            "obs2_dist_x": obs2["x"] - player_x_pos,
+            "obs2_y": obs2["y"],
+            "obs2_width": obs2["img"].width,
+            "obs2_height": obs2["img"].height,
+            "obs2_is_bird": obs2["is_bird"],
+            "game_speed": self.game_speed,
+            "score": self.score,
+            "done": self.done,
+        }
+
+    def step(self, action):
+        if self.done:
+            return self.get_state(), 0, self.done
+
+        reward = 0.1
+        if action == 1:
+            if not self.is_jumping and self.player_y >= 110:
+                self.is_jumping = True
+                self.vertical_velocity = -12
+                self.is_crouching = False
+                self.fast_fall = False
+        elif action == 2:
+            if self.is_jumping:
+                self.fast_fall = True
+            else:
+                self.is_crouching = True
+        else:
+            if self.is_crouching and not self.is_jumping:
+                self.is_crouching = False
+
+        self._tick_game_logic()
+
+        if self.done:
+            reward = -1
+        else:
+            for obs in self.active_obstacles:
+                if obs["x"] < 5 and not obs["passed"]:
+                    reward += 10
+                    obs["passed"] = True
+
+        return self.get_state(), reward, self.done
+
+    def _handle_input_human(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.crashed = True
+                self.done = True
+
+            if not self.done:
+                if event.type == pygame.KEYDOWN:
+                    if not self.start_game_action:
+                        self.start_game_action = True
+
+                    if event.key == pygame.K_UP or event.key == pygame.K_SPACE:
+                        if not self.is_jumping and self.player_y >= 110:
+                            self.is_jumping = True
+                            self.vertical_velocity = -12
+                            self.is_crouching = False
+                            self.fast_fall = False
+
+                    elif event.key == pygame.K_DOWN:
+                        if self.is_jumping:
+                            self.fast_fall = True
+                        else:
+                            self.is_crouching = True
+
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_DOWN:
+                        self.is_crouching = False
+                        self.fast_fall = False
+
+            elif self.done and self.display_game_over_screen:
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_r:
+                    self.reset()
+
+    def _update_player_state(self):
+        if self.done:
+            self.current_player_sprite = self.player_frame_4
+        elif self.is_jumping or self.player_y < 110:
+            self.current_player_sprite = self.player_frame_1
+        elif self.is_crouching:
+            self.current_player_sprite = next(self.crouch_animation)
+        else:
+            self.current_player_sprite = next(self.running_animation)
+
+        if self.is_jumping or self.player_y < 110:
+            self.player_y += self.vertical_velocity
+            fall_speed = 0.9  # Changed from 0.6 to 0.9
+            if self.fast_fall:
+                fall_speed *= 3
+            self.vertical_velocity += fall_speed
+
+            if self.player_y >= 110:
+                self.player_y = 110
+                self.is_jumping = False
+                self.vertical_velocity = 0
+                self.fast_fall = False
+                keys = pygame.key.get_pressed()
+                if keys[pygame.K_DOWN]:  # If still holding down after landing from fast fall
+                    self.is_crouching = True
+                else:
+                    self.is_crouching = False
+
+    def _update_environment_and_obstacles(self):
+        if not self.start_game_action or self.done:
+            return
+
+        for cloud_pos in self.clouds:
+            cloud_pos[0] -= 1
+            if cloud_pos[0] <= -self.cloud_img.width:
+                cloud_pos[0] = 600 + rnd(0, 100)
+                cloud_pos[1] = rnd(0, 100)
+
+        # Move ground
+        self.bg_x -= self.game_speed
+        self.bg1_x -= self.game_speed
+
+        # MODIFICATION 2: Correct ground scrolling logic
+        # If a ground image has moved completely off-screen to the left,
+        # shift it to appear to the right of the other ground image by effectively
+        # adding 2 * self.ground_img.width to its current x position.
+        if self.bg_x <= -self.ground_img.width:
+            self.bg_x += 2 * self.ground_img.width
+        if self.bg1_x <= -self.ground_img.width:
+            self.bg1_x += 2 * self.ground_img.width
+
+        new_obstacles = []
+        max_x = 0
+        for obs in self.active_obstacles:
+            obs["x"] -= self.game_speed
+            if obs["x"] > -obs["img"].width:
+                new_obstacles.append(obs)
+                if obs["x"] > max_x:
+                    max_x = obs["x"]
+            else:
+                self.score += 10  # This score increment should perhaps be based on player passing it, not it going off-screen for AI.
+                # For human mode this is one way to do it. Already handled for AI in step().
+        self.active_obstacles = new_obstacles
+
+        while len(self.active_obstacles) < 3:
+            min_dist = int(self.game_speed * 50)
+            max_dist = int(self.game_speed * 70)
+            if max_dist <= min_dist:  # Ensure randrange has a valid range
+                max_dist = min_dist + 100  # Give a default larger range if speed is too low
+            spawn_x = max(600, int(max_x) + rnd(min_dist, max_dist))
+            self.active_obstacles.append(self._spawn_obstacle(spawn_x))
+
+        self.score += 0.1
+        self.game_speed += 0.001
+
+    def _check_collisions(self):
+        if self.done:
+            return
+
+        player_rect = pygame.Rect(
+            5 + 5,
+            self.player_y + 5,
+            self.current_player_sprite.width - 10,
+            self.current_player_sprite.height - 10,
+        )
+
+        for obs in self.active_obstacles:
+            obs_img_to_use = obs["img"]
+            if obs["is_bird"]:
+                obs_img_to_use = self.pterodactyl_f1_img
+
+            obstacle_rect = pygame.Rect(
+                obs["x"],
+                obs["y"],
+                obs_img_to_use.width - 5,
+                obs_img_to_use.height - 5,
+            )
+            if player_rect.colliderect(obstacle_rect):
+                self.done = True
+                self.current_player_sprite = self.player_frame_4
+                self.start_game_action = False
+                break
+
+    def _render(self):
+        self.gameDisplay.fill((255, 255, 255))
+
+        for cloud_pos in self.clouds:
+            self.gameDisplay.blit(self._convert_pil_to_pygame(self.cloud_img), cloud_pos)
+
+        self.gameDisplay.blit(self._convert_pil_to_pygame(self.ground_img), (int(self.bg_x), 150))
+        self.gameDisplay.blit(self._convert_pil_to_pygame(self.ground_img), (int(self.bg1_x), 150))
+
+        self.gameDisplay.blit(self._convert_pil_to_pygame(self.current_player_sprite), (5, self.player_y))
+
+        current_bird_anim_frame = self._convert_pil_to_pygame(next(self.bird_animation))
+        for obs in self.active_obstacles:
+            img_to_draw_pil = obs["img"]
+            if obs["is_bird"]:
+                img_to_draw_pygame = current_bird_anim_frame
+            else:
+                img_to_draw_pygame = self._convert_pil_to_pygame(img_to_draw_pil)
+            self.gameDisplay.blit(img_to_draw_pygame, (obs["x"], obs["y"]))
+
+        score_text = self.font.render(f"Score: {int(self.score)}", True, (0, 0, 0))
+        self.gameDisplay.blit(score_text, (450, 10))
+
+        if self.done and self.display_game_over_screen:
+            game_over_text = self.font.render("Game Over!", True, (200, 0, 0))
+            restart_text = self.small_font.render("Press R to Restart", True, (0, 0, 0))
+
+            text_rect = game_over_text.get_rect(center=(600 // 2, 200 // 2 - 20))
+            self.gameDisplay.blit(game_over_text, text_rect)
+
+            restart_rect = restart_text.get_rect(center=(600 // 2, 200 // 2 + 20))
+            self.gameDisplay.blit(restart_text, restart_rect)
+
+        pygame.display.update()
+
+    def _tick_game_logic(self):
+        self._update_player_state()
+        if not self.done:
+            self._update_environment_and_obstacles()
+            self._check_collisions()
+
+        if self.done and not self.display_game_over_screen:
+            self.display_game_over_screen = True
+
+    def human_play_tick(self):
+        self._handle_input_human()
+        self._tick_game_logic()
+        self._render()
+        self.clock.tick(60)
+
+    def is_over(self):
+        return self.done
+
+    def get_score(self):
+        return int(self.score)
+
+    def close(self):
+        pygame.quit()
+
+
+if __name__ == "__main__":
+    game = TRexGame(human_mode=True)
+    while not game.crashed:
+        game.human_play_tick()
+
+        # This part of the loop body for 'done' game is implicitly handled
+        # by human_play_tick now (input for restart, logic stopping)
+        # if game.done and game.display_game_over_screen:
+        #     pass
+
+    final_score = game.get_score()
+    print(f"Game Ended! Final Score: {final_score}")
+    game.close()
+    # pygame.quit() is called in game.close().
+    # The second quit() is for exiting the Python script.
+    quit()
