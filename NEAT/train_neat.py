@@ -1,7 +1,7 @@
 import neat
 import pickle
 import matplotlib.pyplot as plt
-from aiGame import TRexGame, DEFAULT_SEED
+from aiGame import TRexGame
 import os
 import argparse
 import re
@@ -10,7 +10,7 @@ import re
 def eval_genomes(genomes, config):
     for genome_id, genome in genomes:
         net = neat.nn.FeedForwardNetwork.create(genome, config)
-        game = TRexGame(human_mode=False, random_seed=DEFAULT_SEED)
+        game = TRexGame(human_mode=False)
         state = game.reset()
         fitness = 0
         done = False
@@ -168,6 +168,15 @@ def run(config_file, n_generations=10000, checkpoint_path=None):
         )
     else:
         print("\n训练完成。未找到可保存的历史最佳基因组。")
+
+    # 保存最后一代的模型
+    last_genome_path = os.path.join(models_dir, "neat-last-genome.pkl")
+    try:
+        with open(last_genome_path, "wb") as f:
+            pickle.dump(winner, f)
+        print(f"最后一代模型已保存到 {last_genome_path}")
+    except Exception as e:
+        print(f"保存最后一代模型失败: {e}")
 
     # 绘制分数曲线
     plot_path = os.path.join(models_dir, "neat_training_curve.png")

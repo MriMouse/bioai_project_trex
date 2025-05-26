@@ -2,7 +2,7 @@ import neat
 import pickle
 import os
 import pygame  # Pygame is used by aiGame.py for rendering
-from aiGame import TRexGame, DEFAULT_SEED  # 导入DEFAULT_SEED
+from aiGame import TRexGame  # , DEFAULT_SEED  # 导入DEFAULT_SEED
 
 # --- Configuration ---
 CONFIG_PATH = "neat-config.txt"
@@ -19,7 +19,7 @@ def play_game(genome, config):
     """
     net = neat.nn.FeedForwardNetwork.create(genome, config)
 
-    game = TRexGame(human_mode=True, random_seed=DEFAULT_SEED)  # 使用固定随机种子确保游戏环境一致
+    game = TRexGame(human_mode=True)  # , random_seed=DEFAULT_SEED)  # 使用固定随机种子确保游戏环境一致
     state = game.reset()
     # MODIFICATION: Ensure the game starts its internal logic for AI play in human_mode
     game.start_game_action = True

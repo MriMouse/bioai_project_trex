@@ -36,7 +36,7 @@ if __name__ == "__main__":
     if latest_checkpoint:
         print(f"找到最新的checkpoint文件: {latest_checkpoint}")
         # 继续训练50代
-        run("neat-config.txt", n_generations=50, checkpoint_path=latest_checkpoint)
+        run("neat-config.txt", n_generations=10000, checkpoint_path=latest_checkpoint)
     else:
         print("未找到checkpoint文件，将从头开始训练")
         run("neat-config.txt", n_generations=50)

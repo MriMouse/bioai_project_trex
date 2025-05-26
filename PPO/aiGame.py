@@ -1,17 +1,17 @@
-﻿from random import randrange as rnd
+from random import randrange as rnd
 from itertools import cycle
 from random import choice, seed
 from PIL import Image
 import pygame
 import time
 
-# 鍥哄畾闅忔満绉嶅瓙甯搁噺
-DEFAULT_SEED = 42
+# 固定随机种子常量 42
+DEFAULT_SEED = 1
 
 
-# Game涓荤被锛屾敮鎸丄I鍜屼汉绫讳袱绉嶆ā寮?
+# Game主类，支持AI和人类两种模式
 class TRexGame:
-    def __init__(self, human_mode=False, random_seed=DEFAULT_SEED):
+    def __init__(self, human_mode=False):  # , random_seed=DEFAULT_SEED):
         pygame.init()
         pygame.font.init()  # Initialize font module
         self.font = pygame.font.Font(None, 36)  # Default font, size 36
@@ -19,9 +19,9 @@ class TRexGame:
         self.speed = 4  # Initial game speed
         self.human_mode = human_mode
         self.score = 0
-        self.random_seed = random_seed
-        # 璁剧疆闅忔満绉嶅瓙
-        seed(self.random_seed)
+        # self.random_seed = random_seed
+        # 设置随机种子
+        # seed(self.random_seed)
         self._init_resources()  # Initializes self.ground_img among others
         self.reset()
 
@@ -97,17 +97,22 @@ class TRexGame:
             list(map(lambda x: x // 2, self.pterodactyl_f2_img.size))
         )
         self.pterodactyl_sprites = [self.pterodactyl_f1_img, self.pterodactyl_f2_img]
-        self.bird_altitudes = [115 - 35, 115 - 15, 115 + 5]
+        self.bird_altitudes = [115 - 30, 115 - 15, 115 + 10]
 
         self.all_obstacle_types = self.cactus_obstacles + self.pterodactyl_sprites
 
-        self.speed_identifier = lambda x: 2 if x >= 30 else 8 if x < 8 else 5    def _convert_pil_to_pygame(self, pil_image):
+        self.speed_identifier = lambda x: 2 if x >= 30 else 8 if x < 8 else 5
+
+    def _convert_pil_to_pygame(self, pil_image):
         return pygame.image.fromstring(pil_image.tobytes(), pil_image.size, "RGBA")
 
     def reset(self):
-        # 閲嶇疆闅忔満绉嶅瓙锛岀‘淇濇瘡娆￠噸缃悗鐢熸垚鐨勫湴鍥剧浉鍚?
-        seed(self.random_seed)
-        
+        # 重置随机种子，确保每次重置后生成的地图相同
+        # seed(self.random_seed)
+
+        # 鸟计数器，每3个鸟强制生成一个高飞鸟
+        self.bird_counter = 0
+
         self.cust_speed = self.speed_identifier(self.speed)
         self.running_animation = cycle(
             [self.player_frame_3] * self.cust_speed + [self.player_frame_31] * self.cust_speed
@@ -128,7 +133,7 @@ class TRexGame:
         self.bg_x = 0
         self.bg1_x = self.ground_img.width
 
-        # AI妯″紡鑷姩寮€濮?
+        # AI模式自动开始
         if not self.human_mode:
             self.start_game_action = True
         else:
@@ -150,72 +155,105 @@ class TRexGame:
         self.score = 0
         self.game_speed = self.speed
 
-        # 杩斿洖鍒濆鐘舵€?
+        # 返回初始状态
         return self.get_state()
 
     def _check_if_obstacle_is_passable(self, obs_img, y_pos, is_bird):
-        """妫€鏌ラ殰纰嶇墿鏄惁鍙互琚帺瀹堕€氳繃锛堣烦杩囨垨韫蹭笅锛?""
-        # 鐜╁鍩烘湰鍙傛暟
-        player_height_standing = self.player_frame_1.height  # 绾?5鍍忕礌
-        player_height_crouching = self.player_frame_5.height  # 绾?0鍍忕礌
-        player_width = self.player_frame_1.width  # 绾?3鍍忕礌
-        player_x = 5  # 鐜╁鍥哄畾x浣嶇疆
+        return True
+        """检查障碍物是否可以被玩家通过（跳过或蹲下），鸟考虑体积（hitbox）"""
+        # 玩家基本参数
+        player_x = 5  # 玩家固定x位置
+        player_width = self.player_frame_1.width
+        player_height_standing = self.player_frame_1.height
+        player_height_crouching = self.player_frame_5.height
+        player_y_standing = 110
+        player_y_crouching = 110 + (player_height_standing - player_height_crouching)
 
-        # 璺宠穬鍙傛暟
-        jump_height = 70  # 澶х害璺宠穬楂樺害
-        jump_duration_frames = 25  # 璺宠穬鎸佺画甯ф暟
+        # 跳跃参数
+        jump_height = 70  # 跳跃高度
 
-        # 闅滅鐗╁弬鏁?
+        # 障碍物参数
         obstacle_width = obs_img.width
         obstacle_height = obs_img.height
+        obstacle_x = 0  # 障碍物x相对玩家x的偏移，实际判定时会用
+        obstacle_y = y_pos
 
-        # 妫€鏌ヨ烦璺冩槸鍚﹀彲浠ラ€氳繃
         if not is_bird:
-            # 浠欎汉鎺岀殑鎯呭喌
-            # 濡傛灉闅滅鐗╅珮搴﹀皬浜庣帺瀹惰烦璺冮珮搴︼紝鍒欏彲閫氳繃
+            # 仙人掌的情况
+            # 如果障碍物高度小于玩家跳跃高度，则可通过
             if obstacle_height + (115 - y_pos) < jump_height:
                 return True
         else:
-            # 楦熺殑鎯呭喌
-            bird_altitude = y_pos
+            # 鸟的情况，考虑hitbox重叠
+            # 鸟的hitbox
+            bird_rect = pygame.Rect(player_x + obstacle_x, obstacle_y, obstacle_width, obstacle_height)
+            # 恐龙站立hitbox
+            trex_stand_rect = pygame.Rect(player_x, player_y_standing, player_width, player_height_standing)
+            # 恐龙蹲下hitbox
+            trex_crouch_rect = pygame.Rect(player_x, player_y_crouching, player_width, player_height_crouching)
 
-            # 妫€鏌ラ笩鏄惁鍦ㄩ珮澶?(鍙互閫氳繃韫蹭笅閫氳繃)
-            if bird_altitude < 85:  # 楦熷湪瓒冲楂樼殑浣嶇疆锛屽彲浠ラ€氳繃韫蹭笅閫氳繃
+            # 跳跃时恐龙的hitbox（假设跳到最高点）
+            trex_jump_rect = pygame.Rect(
+                player_x, player_y_standing - jump_height, player_width, player_height_standing
+            )
+
+            # 鸟在高处：蹲下能通过
+            if not trex_crouch_rect.colliderect(bird_rect):
                 return True
-
-            # 妫€鏌ラ笩鏄惁鍦ㄤ綆澶?(鍙互閫氳繃璺宠穬閫氳繃)
-            if bird_altitude > 95:  # 楦熷湪瓒冲浣庣殑浣嶇疆锛屽彲浠ラ€氳繃璺宠穬閫氳繃
+            # 鸟在低处：跳跃能通过
+            if not trex_jump_rect.colliderect(bird_rect):
                 return True
+            # 鸟在中间：站立、蹲下、跳跃都碰撞，视为不可通过
+            return False
 
-        # 榛樿锛氱敓鎴愪竴涓彲閫氳繃鐨勫皬浠欎汉鎺岋紙淇濆簳瑙ｅ喅鏂规锛?
+        # 默认：生成一个可通过的小仙人掌（保底解决方案）
         return False
 
     def _spawn_obstacle(self, x_pos):
-        """鐢熸垚闅滅鐗╋紝骞剁‘淇濆畠鏄彲閫氳繃鐨?""
-        # 灏濊瘯鐢熸垚涓€涓彲閫氳繃鐨勯殰纰嶇墿
-        max_attempts = 10
+        """
+        生成障碍物，保证每个障碍物都能通过：
+        """
+        max_attempts = 20
+        jump_height = 90
+        player_x = 5
+        player_width = self.player_frame_1.width
+        player_height = self.player_frame_1.height
+        crouch_height = player_height // 2
+        player_y = 110
+        max_cactus_width = 60
         for _ in range(max_attempts):
             chosen_obj_img = choice(self.all_obstacle_types)
             y_pos = 130
-            is_bird = False
-
-            if chosen_obj_img in self.pterodactyl_sprites:
-                is_bird = True
-                y_pos = choice(self.bird_altitudes)
-                actual_img_for_collision = self.pterodactyl_f1_img
-            elif chosen_obj_img in self.large_cactus_group:
-                y_pos = 115
-                actual_img_for_collision = chosen_obj_img
+            is_bird = chosen_obj_img in self.pterodactyl_sprites
+            if is_bird:
+                # 只允许低飞（跳跃必过）或高飞（下蹲必过），且鸟宽度强行缩小
+                if choice([True, False]):
+                    y_pos = self.bird_altitudes[2]  # 只选最低飞
+                else:
+                    y_pos = self.bird_altitudes[0]  # 只选最高飞
+                self.bird_counter += 1
+                obs_img = self.pterodactyl_f1_img.copy()
+                # 鸟宽度强行缩小
+                obs_img = obs_img.crop((0, 0, min(40, obs_img.width), obs_img.height))
+                obs_rect = pygame.Rect(x_pos, y_pos, obs_img.width, obs_img.height)
+                crouch_rect = pygame.Rect(player_x, player_y + player_height // 2, player_width, crouch_height)
+                jump_rect = pygame.Rect(player_x, player_y - jump_height, player_width, player_height)
+                # 鸟宽度过大也不生成
+                max_jump_time = 1.5  # 秒
+                max_jump_horiz_dist = int(self.speed * 1.5 * max_jump_time * 60)
+                if obs_img.width > max_jump_horiz_dist:
+                    continue
+                if not crouch_rect.colliderect(obs_rect) or not jump_rect.colliderect(obs_rect):
+                    return {"x": x_pos, "y": y_pos, "img": obs_img, "is_bird": True, "passed": False}
             else:
-                actual_img_for_collision = chosen_obj_img
-
-            # 妫€鏌ユ闅滅鐗╂槸鍚﹀彲閫氳繃
-            if self._check_if_obstacle_is_passable(actual_img_for_collision, y_pos, is_bird):
-                # 淇濊瘉is_bird瀛楁濮嬬粓瀛樺湪
-                return {"x": x_pos, "y": y_pos, "img": actual_img_for_collision, "is_bird": is_bird, "passed": False}
-
-        # 濡傛灉澶氭灏濊瘯閮藉け璐ワ紝鍒欑敓鎴愪竴涓粯璁ょ殑灏忎粰浜烘帉锛堣偗瀹氬彲閫氳繃锛?
-        default_obstacle = self.obstacle1_img  # 鏈€灏忕殑浠欎汉鎺?
+                if chosen_obj_img in self.large_cactus_group:
+                    y_pos = 115
+                obs_img = chosen_obj_img
+                # 仙人掌高度不能超过最大跳跃高度，宽度不能超过最大允许宽度
+                if obs_img.height + (115 - y_pos) < jump_height + 10 and obs_img.width <= max_cactus_width:
+                    return {"x": x_pos, "y": y_pos, "img": obs_img, "is_bird": False, "passed": False}
+        # 如果多次尝试都失败，则生成一个默认的小仙人掌（肯定可通过）
+        default_obstacle = self.obstacle1_img
         return {"x": x_pos, "y": 130, "img": default_obstacle, "is_bird": False, "passed": False}
 
     def _spawn_initial_obstacles(self):
@@ -225,8 +263,8 @@ class TRexGame:
         self.active_obstacles.append(self._spawn_obstacle(self.active_obstacles[1]["x"] + rnd(300, 500)))
 
     def get_state(self):
-        player_x_pos = 5  # 鐜╁x鍧愭爣
-        # 榛樿闅滅鐗╃粨鏋?
+        player_x_pos = 5  # 玩家x坐标
+        # 默认障碍物结构
         default_obs_val = {
             "x": 999 + player_x_pos,
             "y": 130,
@@ -332,7 +370,7 @@ class TRexGame:
 
         if self.is_jumping or self.player_y < 110:
             self.player_y += self.vertical_velocity
-            fall_speed = 0.9  # Changed from 0.6 to 0.9
+            fall_speed = 0.8  # Changed from 0.6 to 0.9
             if self.fast_fall:
                 fall_speed *= 3
             self.vertical_velocity += fall_speed
@@ -396,31 +434,24 @@ class TRexGame:
         self.game_speed += 0.001
 
     def _check_collisions(self):
-        if self.done:
-            return
-
-        player_rect = pygame.Rect(
-            5 + 5,
-            self.player_y + 5,
-            self.current_player_sprite.width - 10,
-            self.current_player_sprite.height - 10,
-        )
+        # 角色参数
+        player_x = 5
+        player_width = self.player_frame_1.width
+        player_height = self.player_frame_1.height
+        # 下蹲时碰撞箱高度减半，底边不变
+        if self.is_crouching and not self.is_jumping:
+            hitbox_height = player_height // 2
+            hitbox_y = self.player_y + player_height // 2
+        else:
+            hitbox_height = player_height
+            hitbox_y = self.player_y
+        player_rect = pygame.Rect(player_x, int(hitbox_y), player_width, int(hitbox_height))
 
         for obs in self.active_obstacles:
-            obs_img_to_use = obs["img"]
-            if obs["is_bird"]:
-                obs_img_to_use = self.pterodactyl_f1_img
-
-            obstacle_rect = pygame.Rect(
-                obs["x"],
-                obs["y"],
-                obs_img_to_use.width - 5,
-                obs_img_to_use.height - 5,
-            )
-            if player_rect.colliderect(obstacle_rect):
+            obs_rect = pygame.Rect(int(obs["x"]), int(obs["y"]), obs["img"].width, obs["img"].height)
+            if player_rect.colliderect(obs_rect):
                 self.done = True
-                self.current_player_sprite = self.player_frame_4
-                self.start_game_action = False
+                # self.crashed = True
                 break
 
     def _render(self):

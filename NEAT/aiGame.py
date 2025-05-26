@@ -5,13 +5,13 @@ from PIL import Image
 import pygame
 import time
 
-# 固定随机种子常量
-DEFAULT_SEED = 42
+# 固定随机种子常量 42
+# DEFAULT_SEED = 1
 
 
 # Game主类，支持AI和人类两种模式
 class TRexGame:
-    def __init__(self, human_mode=False, random_seed=DEFAULT_SEED):
+    def __init__(self, human_mode=False):  # , random_seed=DEFAULT_SEED):
         pygame.init()
         pygame.font.init()  # Initialize font module
         self.font = pygame.font.Font(None, 36)  # Default font, size 36
@@ -19,9 +19,9 @@ class TRexGame:
         self.speed = 4  # Initial game speed
         self.human_mode = human_mode
         self.score = 0
-        self.random_seed = random_seed
+        # self.random_seed = random_seed
         # 设置随机种子
-        seed(self.random_seed)
+        # seed(self.random_seed)
         self._init_resources()  # Initializes self.ground_img among others
         self.reset()
 
@@ -108,7 +108,7 @@ class TRexGame:
 
     def reset(self):
         # 重置随机种子，确保每次重置后生成的地图相同
-        seed(self.random_seed)
+        # seed(self.random_seed)
 
         # 鸟计数器，每3个鸟强制生成一个高飞鸟
         self.bird_counter = 0
@@ -214,13 +214,13 @@ class TRexGame:
         生成障碍物，保证每个障碍物都能通过：
         """
         max_attempts = 20
-        jump_height = 80
+        jump_height = 90
         player_x = 5
         player_width = self.player_frame_1.width
         player_height = self.player_frame_1.height
         crouch_height = player_height // 2
         player_y = 110
-        max_cactus_width = 100
+        max_cactus_width = 60
         for _ in range(max_attempts):
             chosen_obj_img = choice(self.all_obstacle_types)
             y_pos = 130
@@ -370,7 +370,7 @@ class TRexGame:
 
         if self.is_jumping or self.player_y < 110:
             self.player_y += self.vertical_velocity
-            fall_speed = 0.9  # Changed from 0.6 to 0.9
+            fall_speed = 0.8  # Changed from 0.6 to 0.9
             if self.fast_fall:
                 fall_speed *= 3
             self.vertical_velocity += fall_speed
