@@ -1,0 +1,2605 @@
+NEAT Training Log
+==============================
+Generation 0: Switching to fixed seed
+--- Generation 0 ---
+  Best Fitness: 28.00
+  Average Fitness: 18.98
+  Std Dev Fitness: 6.29
+  Species Count: 50
+  Best Genome Nodes: 4
+  Best Genome Connections: 17
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 1 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.53
+  Std Dev Fitness: 5.75
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 2 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 3 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 4 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 5 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 6 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 7 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 8 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 9 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 10 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 11 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 12 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 13 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 14 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 15 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 16 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 17 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 18 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 19 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 20 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 21 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 22 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 23 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 24 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 25 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 26 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 27 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 28 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 29 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 50
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 30 ---
+  Best Fitness: 34.80
+  Average Fitness: 19.65
+  Std Dev Fitness: 5.80
+  Species Count: 9
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 31 ---
+  Best Fitness: 34.80
+  Average Fitness: 21.35
+  Std Dev Fitness: 7.47
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 32 ---
+  Best Fitness: 34.80
+  Average Fitness: 23.40
+  Std Dev Fitness: 5.80
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 33 ---
+  Best Fitness: 34.80
+  Average Fitness: 24.75
+  Std Dev Fitness: 5.43
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 34 ---
+  Best Fitness: 34.80
+  Average Fitness: 23.35
+  Std Dev Fitness: 5.74
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 35 ---
+  Best Fitness: 34.80
+  Average Fitness: 18.97
+  Std Dev Fitness: 36.09
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 36 ---
+  Best Fitness: 34.80
+  Average Fitness: 23.07
+  Std Dev Fitness: 5.83
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 37 ---
+  Best Fitness: 34.80
+  Average Fitness: 23.98
+  Std Dev Fitness: 5.64
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 38 ---
+  Best Fitness: 34.80
+  Average Fitness: 21.86
+  Std Dev Fitness: 7.54
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 39 ---
+  Best Fitness: 34.80
+  Average Fitness: 22.67
+  Std Dev Fitness: 9.90
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 40 ---
+  Best Fitness: 34.80
+  Average Fitness: 20.75
+  Std Dev Fitness: 28.08
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 41 ---
+  Best Fitness: 34.80
+  Average Fitness: 23.44
+  Std Dev Fitness: 5.76
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 42 ---
+  Best Fitness: 34.80
+  Average Fitness: 23.00
+  Std Dev Fitness: 5.81
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 43 ---
+  Best Fitness: 34.80
+  Average Fitness: 23.73
+  Std Dev Fitness: 5.70
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 44 ---
+  Best Fitness: 34.80
+  Average Fitness: 24.10
+  Std Dev Fitness: 5.62
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 45 ---
+  Best Fitness: 34.80
+  Average Fitness: 23.28
+  Std Dev Fitness: 5.83
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 46 ---
+  Best Fitness: 34.80
+  Average Fitness: 24.35
+  Std Dev Fitness: 5.59
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 47 ---
+  Best Fitness: 34.80
+  Average Fitness: 24.03
+  Std Dev Fitness: 5.64
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 48 ---
+  Best Fitness: 34.80
+  Average Fitness: 24.16
+  Std Dev Fitness: 5.56
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 49 ---
+  Best Fitness: 34.80
+  Average Fitness: 23.27
+  Std Dev Fitness: 7.58
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 50 ---
+  Best Fitness: 34.80
+  Average Fitness: 23.69
+  Std Dev Fitness: 5.76
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 51 ---
+  Best Fitness: 34.80
+  Average Fitness: 24.60
+  Std Dev Fitness: 5.48
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 52 ---
+  Best Fitness: 46.10
+  Average Fitness: 21.40
+  Std Dev Fitness: 28.87
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 53 ---
+  Best Fitness: 46.30
+  Average Fitness: 18.09
+  Std Dev Fitness: 43.29
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 54 ---
+  Best Fitness: 46.30
+  Average Fitness: 23.25
+  Std Dev Fitness: 7.37
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 55 ---
+  Best Fitness: 46.30
+  Average Fitness: 25.15
+  Std Dev Fitness: 6.93
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 56 ---
+  Best Fitness: 46.30
+  Average Fitness: 25.96
+  Std Dev Fitness: 6.63
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 57 ---
+  Best Fitness: 46.30
+  Average Fitness: 20.51
+  Std Dev Fitness: 23.11
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 58 ---
+  Best Fitness: 46.30
+  Average Fitness: 24.17
+  Std Dev Fitness: 7.27
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 59 ---
+  Best Fitness: 46.30
+  Average Fitness: 24.43
+  Std Dev Fitness: 7.21
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 60 ---
+  Best Fitness: 46.30
+  Average Fitness: 24.27
+  Std Dev Fitness: 7.22
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 61 ---
+  Best Fitness: 46.30
+  Average Fitness: 24.68
+  Std Dev Fitness: 7.18
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 62 ---
+  Best Fitness: 46.30
+  Average Fitness: 22.86
+  Std Dev Fitness: 8.19
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 63 ---
+  Best Fitness: 46.30
+  Average Fitness: 24.17
+  Std Dev Fitness: 7.30
+  Species Count: 5
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 64 ---
+  Best Fitness: 46.30
+  Average Fitness: 24.46
+  Std Dev Fitness: 7.51
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 65 ---
+  Best Fitness: 46.30
+  Average Fitness: 23.69
+  Std Dev Fitness: 8.29
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 66 ---
+  Best Fitness: 46.30
+  Average Fitness: 24.50
+  Std Dev Fitness: 7.59
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 67 ---
+  Best Fitness: 46.30
+  Average Fitness: 25.19
+  Std Dev Fitness: 7.15
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 68 ---
+  Best Fitness: 46.30
+  Average Fitness: 22.80
+  Std Dev Fitness: 12.28
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 69 ---
+  Best Fitness: 46.30
+  Average Fitness: 24.51
+  Std Dev Fitness: 7.34
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 70 ---
+  Best Fitness: 46.30
+  Average Fitness: 24.60
+  Std Dev Fitness: 7.27
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 71 ---
+  Best Fitness: 46.30
+  Average Fitness: 24.60
+  Std Dev Fitness: 8.04
+  Species Count: 4
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 72 ---
+  Best Fitness: 52.00
+  Average Fitness: 23.90
+  Std Dev Fitness: 8.86
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 73 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.46
+  Std Dev Fitness: 8.93
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 74 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.34
+  Std Dev Fitness: 8.79
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 75 ---
+  Best Fitness: 52.00
+  Average Fitness: 23.84
+  Std Dev Fitness: 8.63
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 76 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.50
+  Std Dev Fitness: 8.31
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 77 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.92
+  Std Dev Fitness: 8.77
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 78 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.62
+  Std Dev Fitness: 8.35
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 79 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.64
+  Std Dev Fitness: 8.32
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 80 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.79
+  Std Dev Fitness: 9.12
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 81 ---
+  Best Fitness: 52.00
+  Average Fitness: 23.49
+  Std Dev Fitness: 9.99
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 82 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.54
+  Std Dev Fitness: 8.78
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 83 ---
+  Best Fitness: 52.00
+  Average Fitness: 23.61
+  Std Dev Fitness: 8.91
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 84 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.67
+  Std Dev Fitness: 8.97
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 85 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.37
+  Std Dev Fitness: 9.20
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 86 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.49
+  Std Dev Fitness: 8.75
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 87 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.78
+  Std Dev Fitness: 9.05
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 88 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.60
+  Std Dev Fitness: 9.53
+  Species Count: 4
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 89 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.85
+  Std Dev Fitness: 8.99
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 90 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.74
+  Std Dev Fitness: 8.70
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 91 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.97
+  Std Dev Fitness: 8.65
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 92 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.81
+  Std Dev Fitness: 8.29
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 93 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.34
+  Std Dev Fitness: 8.45
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 94 ---
+  Best Fitness: 52.00
+  Average Fitness: 23.32
+  Std Dev Fitness: 8.95
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 95 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.45
+  Std Dev Fitness: 8.84
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 96 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.87
+  Std Dev Fitness: 9.38
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 97 ---
+  Best Fitness: 52.00
+  Average Fitness: -12.29
+  Std Dev Fitness: 188.47
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 98 ---
+  Best Fitness: 52.00
+  Average Fitness: 23.15
+  Std Dev Fitness: 11.82
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 99 ---
+  Best Fitness: 52.00
+  Average Fitness: 26.21
+  Std Dev Fitness: 9.07
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 100 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.52
+  Std Dev Fitness: 9.17
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 101 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.80
+  Std Dev Fitness: 9.66
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 102 ---
+  Best Fitness: 52.00
+  Average Fitness: 11.04
+  Std Dev Fitness: 93.54
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 103 ---
+  Best Fitness: 52.00
+  Average Fitness: 22.29
+  Std Dev Fitness: 12.80
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 104 ---
+  Best Fitness: 52.00
+  Average Fitness: 23.74
+  Std Dev Fitness: 9.46
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 105 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.21
+  Std Dev Fitness: 8.81
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 106 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.70
+  Std Dev Fitness: 8.98
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 107 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.91
+  Std Dev Fitness: 9.04
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 108 ---
+  Best Fitness: 52.00
+  Average Fitness: 23.95
+  Std Dev Fitness: 9.93
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 109 ---
+  Best Fitness: 52.00
+  Average Fitness: 19.47
+  Std Dev Fitness: 31.69
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 110 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.64
+  Std Dev Fitness: 9.55
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 111 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.41
+  Std Dev Fitness: 9.39
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 112 ---
+  Best Fitness: 52.00
+  Average Fitness: 23.90
+  Std Dev Fitness: 9.80
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 113 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.71
+  Std Dev Fitness: 9.38
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 114 ---
+  Best Fitness: 52.00
+  Average Fitness: 21.92
+  Std Dev Fitness: 21.23
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 115 ---
+  Best Fitness: 52.00
+  Average Fitness: 23.16
+  Std Dev Fitness: 9.83
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 116 ---
+  Best Fitness: 52.00
+  Average Fitness: 20.02
+  Std Dev Fitness: 23.35
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 117 ---
+  Best Fitness: 52.00
+  Average Fitness: 18.97
+  Std Dev Fitness: 26.77
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 118 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.15
+  Std Dev Fitness: 8.94
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 119 ---
+  Best Fitness: 52.00
+  Average Fitness: 26.26
+  Std Dev Fitness: 8.55
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 120 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.14
+  Std Dev Fitness: 9.73
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 121 ---
+  Best Fitness: 52.00
+  Average Fitness: 19.35
+  Std Dev Fitness: 35.78
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 122 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.32
+  Std Dev Fitness: 8.74
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 123 ---
+  Best Fitness: 52.00
+  Average Fitness: 18.38
+  Std Dev Fitness: 43.77
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 124 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.07
+  Std Dev Fitness: 9.04
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 125 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.85
+  Std Dev Fitness: 8.72
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 126 ---
+  Best Fitness: 52.00
+  Average Fitness: 24.52
+  Std Dev Fitness: 9.07
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 127 ---
+  Best Fitness: 52.00
+  Average Fitness: 25.96
+  Std Dev Fitness: 9.39
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 128 ---
+  Best Fitness: 52.00
+  Average Fitness: 3.75
+  Std Dev Fitness: 164.50
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 129 ---
+  Best Fitness: 52.00
+  Average Fitness: 21.11
+  Std Dev Fitness: 45.92
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 130 ---
+  Best Fitness: 52.00
+  Average Fitness: -1.03
+  Std Dev Fitness: 169.63
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 131 ---
+  Best Fitness: 52.00
+  Average Fitness: 10.26
+  Std Dev Fitness: 124.86
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 132 ---
+  Best Fitness: 52.00
+  Average Fitness: -7.03
+  Std Dev Fitness: 237.16
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 133 ---
+  Best Fitness: 52.00
+  Average Fitness: 26.47
+  Std Dev Fitness: 8.96
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 134 ---
+  Best Fitness: 52.00
+  Average Fitness: 27.99
+  Std Dev Fitness: 9.15
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 135 ---
+  Best Fitness: 52.00
+  Average Fitness: -7.23
+  Std Dev Fitness: 237.14
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 136 ---
+  Best Fitness: 52.00
+  Average Fitness: -37.73
+  Std Dev Fitness: 290.65
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 137 ---
+  Best Fitness: 52.00
+  Average Fitness: -11.99
+  Std Dev Fitness: 269.80
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 138 ---
+  Best Fitness: 52.00
+  Average Fitness: 12.39
+  Std Dev Fitness: 88.98
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 139 ---
+  Best Fitness: 52.00
+  Average Fitness: 27.34
+  Std Dev Fitness: 11.60
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 140 ---
+  Best Fitness: 52.00
+  Average Fitness: -8.15
+  Std Dev Fitness: 239.50
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 141 ---
+  Best Fitness: 52.00
+  Average Fitness: -51.26
+  Std Dev Fitness: 355.75
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 142 ---
+  Best Fitness: 52.00
+  Average Fitness: 13.07
+  Std Dev Fitness: 60.68
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 143 ---
+  Best Fitness: 52.00
+  Average Fitness: 18.14
+  Std Dev Fitness: 44.72
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 144 ---
+  Best Fitness: 52.00
+  Average Fitness: 27.55
+  Std Dev Fitness: 10.94
+  Species Count: 3
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 145 ---
+  Best Fitness: 52.10
+  Average Fitness: 22.74
+  Std Dev Fitness: 32.60
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 146 ---
+  Best Fitness: 52.10
+  Average Fitness: -84.59
+  Std Dev Fitness: 398.61
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 147 ---
+  Best Fitness: 52.10
+  Average Fitness: 26.17
+  Std Dev Fitness: 10.73
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 148 ---
+  Best Fitness: 52.10
+  Average Fitness: 7.85
+  Std Dev Fitness: 124.95
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 149 ---
+  Best Fitness: 52.10
+  Average Fitness: 22.87
+  Std Dev Fitness: 44.71
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 150 ---
+  Best Fitness: 52.10
+  Average Fitness: -60.61
+  Std Dev Fitness: 382.03
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 151 ---
+  Best Fitness: 52.10
+  Average Fitness: 27.13
+  Std Dev Fitness: 10.61
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 152 ---
+  Best Fitness: 52.10
+  Average Fitness: -43.15
+  Std Dev Fitness: 331.80
+  Species Count: 3
+  Best Genome Nodes: 5
+  Best Genome Connections: 18
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 153 ---
+  Best Fitness: 52.20
+  Average Fitness: -11.00
+  Std Dev Fitness: 267.23
+  Species Count: 3
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 154 ---
+  Best Fitness: 52.20
+  Average Fitness: 28.10
+  Std Dev Fitness: 10.64
+  Species Count: 3
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 155 ---
+  Best Fitness: 52.20
+  Average Fitness: 29.34
+  Std Dev Fitness: 10.40
+  Species Count: 3
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 156 ---
+  Best Fitness: 52.20
+  Average Fitness: 14.18
+  Std Dev Fitness: 52.14
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 157 ---
+  Best Fitness: 52.20
+  Average Fitness: 11.97
+  Std Dev Fitness: 69.16
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 158 ---
+  Best Fitness: 52.20
+  Average Fitness: -2.21
+  Std Dev Fitness: 211.69
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 159 ---
+  Best Fitness: 52.20
+  Average Fitness: 18.26
+  Std Dev Fitness: 44.56
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 160 ---
+  Best Fitness: 52.20
+  Average Fitness: 19.52
+  Std Dev Fitness: 40.55
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 161 ---
+  Best Fitness: 52.20
+  Average Fitness: -22.72
+  Std Dev Fitness: 306.88
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 162 ---
+  Best Fitness: 52.20
+  Average Fitness: -22.32
+  Std Dev Fitness: 250.98
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 163 ---
+  Best Fitness: 52.20
+  Average Fitness: -28.09
+  Std Dev Fitness: 356.42
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 164 ---
+  Best Fitness: 52.20
+  Average Fitness: -57.12
+  Std Dev Fitness: 402.59
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 165 ---
+  Best Fitness: 52.20
+  Average Fitness: 3.66
+  Std Dev Fitness: 158.67
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 166 ---
+  Best Fitness: 52.20
+  Average Fitness: -0.40
+  Std Dev Fitness: 132.30
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 167 ---
+  Best Fitness: 52.20
+  Average Fitness: -13.97
+  Std Dev Fitness: 292.49
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 168 ---
+  Best Fitness: 52.20
+  Average Fitness: 23.01
+  Std Dev Fitness: 26.43
+  Species Count: 2
+  Best Genome Nodes: 7
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 169 ---
+  Best Fitness: 52.40
+  Average Fitness: -16.55
+  Std Dev Fitness: 306.82
+  Species Count: 2
+  Best Genome Nodes: 8
+  Best Genome Connections: 19
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 170 ---
+  Best Fitness: 52.40
+  Average Fitness: -24.69
+  Std Dev Fitness: 266.88
+  Species Count: 2
+  Best Genome Nodes: 8
+  Best Genome Connections: 19
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 171 ---
+  Best Fitness: 52.40
+  Average Fitness: -14.18
+  Std Dev Fitness: 266.76
+  Species Count: 2
+  Best Genome Nodes: 8
+  Best Genome Connections: 19
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 172 ---
+  Best Fitness: 52.40
+  Average Fitness: 27.23
+  Std Dev Fitness: 12.12
+  Species Count: 2
+  Best Genome Nodes: 8
+  Best Genome Connections: 19
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 173 ---
+  Best Fitness: 52.40
+  Average Fitness: 21.83
+  Std Dev Fitness: 37.30
+  Species Count: 2
+  Best Genome Nodes: 8
+  Best Genome Connections: 19
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 174 ---
+  Best Fitness: 52.50
+  Average Fitness: 27.65
+  Std Dev Fitness: 13.50
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 175 ---
+  Best Fitness: 52.50
+  Average Fitness: -25.91
+  Std Dev Fitness: 291.84
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 176 ---
+  Best Fitness: 52.50
+  Average Fitness: -26.93
+  Std Dev Fitness: 272.29
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 177 ---
+  Best Fitness: 52.50
+  Average Fitness: 16.40
+  Std Dev Fitness: 47.72
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 178 ---
+  Best Fitness: 52.50
+  Average Fitness: -9.36
+  Std Dev Fitness: 173.70
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 179 ---
+  Best Fitness: 52.50
+  Average Fitness: 25.05
+  Std Dev Fitness: 18.23
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 180 ---
+  Best Fitness: 52.50
+  Average Fitness: 22.47
+  Std Dev Fitness: 28.50
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 181 ---
+  Best Fitness: 52.50
+  Average Fitness: 20.37
+  Std Dev Fitness: 44.33
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 182 ---
+  Best Fitness: 52.70
+  Average Fitness: 29.23
+  Std Dev Fitness: 12.87
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 183 ---
+  Best Fitness: 52.70
+  Average Fitness: -1.71
+  Std Dev Fitness: 168.76
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 184 ---
+  Best Fitness: 52.70
+  Average Fitness: 20.89
+  Std Dev Fitness: 41.78
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 185 ---
+  Best Fitness: 52.70
+  Average Fitness: 23.19
+  Std Dev Fitness: 30.59
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 186 ---
+  Best Fitness: 52.70
+  Average Fitness: -8.25
+  Std Dev Fitness: 268.45
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 187 ---
+  Best Fitness: 52.70
+  Average Fitness: 27.39
+  Std Dev Fitness: 12.56
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 188 ---
+  Best Fitness: 52.70
+  Average Fitness: 29.84
+  Std Dev Fitness: 12.94
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 189 ---
+  Best Fitness: 52.70
+  Average Fitness: 5.36
+  Std Dev Fitness: 81.99
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 190 ---
+  Best Fitness: 52.70
+  Average Fitness: 14.29
+  Std Dev Fitness: 86.41
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 191 ---
+  Best Fitness: 52.70
+  Average Fitness: -16.32
+  Std Dev Fitness: 276.75
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 192 ---
+  Best Fitness: 52.70
+  Average Fitness: 27.85
+  Std Dev Fitness: 12.11
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 193 ---
+  Best Fitness: 52.70
+  Average Fitness: 26.19
+  Std Dev Fitness: 13.36
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 194 ---
+  Best Fitness: 52.70
+  Average Fitness: -13.84
+  Std Dev Fitness: 241.14
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 195 ---
+  Best Fitness: 52.70
+  Average Fitness: 24.58
+  Std Dev Fitness: 10.40
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 196 ---
+  Best Fitness: 52.70
+  Average Fitness: 26.07
+  Std Dev Fitness: 10.28
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 197 ---
+  Best Fitness: 52.70
+  Average Fitness: 28.07
+  Std Dev Fitness: 13.02
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 198 ---
+  Best Fitness: 52.70
+  Average Fitness: 1.30
+  Std Dev Fitness: 188.82
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 199 ---
+  Best Fitness: 52.70
+  Average Fitness: -68.30
+  Std Dev Fitness: 385.51
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 200 ---
+  Best Fitness: 52.70
+  Average Fitness: 17.13
+  Std Dev Fitness: 44.77
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 201 ---
+  Best Fitness: 52.70
+  Average Fitness: 24.82
+  Std Dev Fitness: 13.35
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 202 ---
+  Best Fitness: 52.70
+  Average Fitness: 19.40
+  Std Dev Fitness: 45.21
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 203 ---
+  Best Fitness: 52.70
+  Average Fitness: 27.62
+  Std Dev Fitness: 12.29
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 204 ---
+  Best Fitness: 52.70
+  Average Fitness: 28.26
+  Std Dev Fitness: 11.99
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 205 ---
+  Best Fitness: 52.70
+  Average Fitness: 1.28
+  Std Dev Fitness: 136.73
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 206 ---
+  Best Fitness: 52.70
+  Average Fitness: 20.35
+  Std Dev Fitness: 40.77
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 207 ---
+  Best Fitness: 52.70
+  Average Fitness: 21.49
+  Std Dev Fitness: 45.06
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 208 ---
+  Best Fitness: 52.70
+  Average Fitness: -32.75
+  Std Dev Fitness: 285.43
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 209 ---
+  Best Fitness: 52.70
+  Average Fitness: 7.08
+  Std Dev Fitness: 126.73
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 210 ---
+  Best Fitness: 52.70
+  Average Fitness: 22.32
+  Std Dev Fitness: 36.46
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 211 ---
+  Best Fitness: 52.70
+  Average Fitness: -17.34
+  Std Dev Fitness: 306.66
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 212 ---
+  Best Fitness: 52.70
+  Average Fitness: -13.78
+  Std Dev Fitness: 194.99
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 213 ---
+  Best Fitness: 52.70
+  Average Fitness: 21.77
+  Std Dev Fitness: 47.77
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 214 ---
+  Best Fitness: 52.70
+  Average Fitness: 27.16
+  Std Dev Fitness: 13.13
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 215 ---
+  Best Fitness: 52.70
+  Average Fitness: 26.78
+  Std Dev Fitness: 11.99
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 216 ---
+  Best Fitness: 52.70
+  Average Fitness: -93.73
+  Std Dev Fitness: 464.84
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 217 ---
+  Best Fitness: 52.70
+  Average Fitness: -74.89
+  Std Dev Fitness: 521.02
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 218 ---
+  Best Fitness: 52.70
+  Average Fitness: 7.55
+  Std Dev Fitness: 126.97
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 219 ---
+  Best Fitness: 52.70
+  Average Fitness: 17.56
+  Std Dev Fitness: 46.28
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 220 ---
+  Best Fitness: 52.70
+  Average Fitness: -4.97
+  Std Dev Fitness: 210.43
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 221 ---
+  Best Fitness: 52.70
+  Average Fitness: 25.81
+  Std Dev Fitness: 11.57
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 222 ---
+  Best Fitness: 52.70
+  Average Fitness: -21.96
+  Std Dev Fitness: 244.90
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 223 ---
+  Best Fitness: 52.70
+  Average Fitness: 27.58
+  Std Dev Fitness: 12.19
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 224 ---
+  Best Fitness: 52.70
+  Average Fitness: 20.60
+  Std Dev Fitness: 48.81
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 225 ---
+  Best Fitness: 52.70
+  Average Fitness: -31.59
+  Std Dev Fitness: 317.67
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 226 ---
+  Best Fitness: 52.70
+  Average Fitness: 24.60
+  Std Dev Fitness: 10.48
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 227 ---
+  Best Fitness: 52.70
+  Average Fitness: -11.31
+  Std Dev Fitness: 267.23
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 228 ---
+  Best Fitness: 52.70
+  Average Fitness: 25.70
+  Std Dev Fitness: 11.53
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 229 ---
+  Best Fitness: 52.70
+  Average Fitness: 25.73
+  Std Dev Fitness: 12.59
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 230 ---
+  Best Fitness: 52.70
+  Average Fitness: -13.24
+  Std Dev Fitness: 236.66
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 231 ---
+  Best Fitness: 52.70
+  Average Fitness: -14.28
+  Std Dev Fitness: 266.43
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 232 ---
+  Best Fitness: 52.70
+  Average Fitness: 5.66
+  Std Dev Fitness: 126.41
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 233 ---
+  Best Fitness: 52.70
+  Average Fitness: 23.80
+  Std Dev Fitness: 30.51
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 234 ---
+  Best Fitness: 52.70
+  Average Fitness: -24.82
+  Std Dev Fitness: 359.89
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 235 ---
+  Best Fitness: 52.70
+  Average Fitness: -48.66
+  Std Dev Fitness: 373.95
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 236 ---
+  Best Fitness: 52.70
+  Average Fitness: 20.73
+  Std Dev Fitness: 32.92
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 237 ---
+  Best Fitness: 52.70
+  Average Fitness: 15.19
+  Std Dev Fitness: 45.83
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 238 ---
+  Best Fitness: 52.70
+  Average Fitness: 22.95
+  Std Dev Fitness: 21.42
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 239 ---
+  Best Fitness: 52.70
+  Average Fitness: 28.83
+  Std Dev Fitness: 11.64
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 240 ---
+  Best Fitness: 52.70
+  Average Fitness: -6.89
+  Std Dev Fitness: 237.33
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 241 ---
+  Best Fitness: 52.70
+  Average Fitness: -13.01
+  Std Dev Fitness: 240.33
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 242 ---
+  Best Fitness: 52.70
+  Average Fitness: -20.82
+  Std Dev Fitness: 306.80
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 243 ---
+  Best Fitness: 52.70
+  Average Fitness: 19.59
+  Std Dev Fitness: 28.52
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 244 ---
+  Best Fitness: 52.70
+  Average Fitness: 19.04
+  Std Dev Fitness: 26.65
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 245 ---
+  Best Fitness: 52.70
+  Average Fitness: 26.47
+  Std Dev Fitness: 11.20
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 246 ---
+  Best Fitness: 52.70
+  Average Fitness: 14.36
+  Std Dev Fitness: 51.83
+  Species Count: 2
+  Best Genome Nodes: 11
+  Best Genome Connections: 23
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 247 ---
+  Best Fitness: 6000.00
+  Average Fitness: 77.10
+  Std Dev Fitness: 913.61
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+Generation 248: Switching to random seed
+--- Generation 248 ---
+  Best Fitness: 6000.00
+  Average Fitness: 103.48
+  Std Dev Fitness: 866.66
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 249 ---
+  Best Fitness: 6000.00
+  Average Fitness: 97.80
+  Std Dev Fitness: 878.67
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 250 ---
+  Best Fitness: 6000.00
+  Average Fitness: 81.17
+  Std Dev Fitness: 908.98
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 251 ---
+  Best Fitness: 6000.00
+  Average Fitness: 70.76
+  Std Dev Fitness: 920.29
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 252 ---
+  Best Fitness: 6000.00
+  Average Fitness: 146.70
+  Std Dev Fitness: 836.28
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 253 ---
+  Best Fitness: 6000.00
+  Average Fitness: 109.36
+  Std Dev Fitness: 874.68
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 254 ---
+  Best Fitness: 6000.00
+  Average Fitness: 138.23
+  Std Dev Fitness: 838.59
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 255 ---
+  Best Fitness: 6000.00
+  Average Fitness: 145.06
+  Std Dev Fitness: 836.50
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 256 ---
+  Best Fitness: 6000.00
+  Average Fitness: 107.30
+  Std Dev Fitness: 878.84
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 257 ---
+  Best Fitness: 6000.00
+  Average Fitness: 138.36
+  Std Dev Fitness: 838.57
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 258 ---
+  Best Fitness: 6000.00
+  Average Fitness: 136.43
+  Std Dev Fitness: 839.83
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 259 ---
+  Best Fitness: 6000.00
+  Average Fitness: 121.89
+  Std Dev Fitness: 849.21
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 260 ---
+  Best Fitness: 6000.00
+  Average Fitness: -44.99
+  Std Dev Fitness: 1387.36
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 261 ---
+  Best Fitness: 6000.00
+  Average Fitness: 70.71
+  Std Dev Fitness: 897.24
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 262 ---
+  Best Fitness: 6000.00
+  Average Fitness: 109.98
+  Std Dev Fitness: 858.97
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 263 ---
+  Best Fitness: 6000.00
+  Average Fitness: 194.14
+  Std Dev Fitness: 1250.81
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 264 ---
+  Best Fitness: 6000.00
+  Average Fitness: 220.40
+  Std Dev Fitness: 1201.51
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 265 ---
+  Best Fitness: 6000.00
+  Average Fitness: 218.89
+  Std Dev Fitness: 1212.28
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 266 ---
+  Best Fitness: 6000.00
+  Average Fitness: 260.98
+  Std Dev Fitness: 1171.77
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 267 ---
+  Best Fitness: 6000.00
+  Average Fitness: 262.98
+  Std Dev Fitness: 1171.20
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 268 ---
+  Best Fitness: 6000.00
+  Average Fitness: 260.54
+  Std Dev Fitness: 1171.94
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 269 ---
+  Best Fitness: 6000.00
+  Average Fitness: 213.94
+  Std Dev Fitness: 1207.04
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 270 ---
+  Best Fitness: 6000.00
+  Average Fitness: 194.37
+  Std Dev Fitness: 1225.81
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 271 ---
+  Best Fitness: 6000.00
+  Average Fitness: 262.24
+  Std Dev Fitness: 1171.26
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 272 ---
+  Best Fitness: 6000.00
+  Average Fitness: 262.75
+  Std Dev Fitness: 1171.14
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 273 ---
+  Best Fitness: 6000.00
+  Average Fitness: 252.19
+  Std Dev Fitness: 1175.14
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 274 ---
+  Best Fitness: 6000.00
+  Average Fitness: 223.26
+  Std Dev Fitness: 1203.65
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 275 ---
+  Best Fitness: 6000.00
+  Average Fitness: 376.43
+  Std Dev Fitness: 1421.46
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 276 ---
+  Best Fitness: 6000.00
+  Average Fitness: 256.25
+  Std Dev Fitness: 1173.35
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 277 ---
+  Best Fitness: 6000.00
+  Average Fitness: 263.23
+  Std Dev Fitness: 1171.06
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 278 ---
+  Best Fitness: 6000.00
+  Average Fitness: 193.43
+  Std Dev Fitness: 1283.16
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 279 ---
+  Best Fitness: 6000.00
+  Average Fitness: 223.83
+  Std Dev Fitness: 1203.77
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 280 ---
+  Best Fitness: 6000.00
+  Average Fitness: 253.30
+  Std Dev Fitness: 1175.10
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 281 ---
+  Best Fitness: 6000.00
+  Average Fitness: 264.57
+  Std Dev Fitness: 1170.80
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 282 ---
+  Best Fitness: 6000.00
+  Average Fitness: 234.05
+  Std Dev Fitness: 1197.87
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 283 ---
+  Best Fitness: 6000.00
+  Average Fitness: 264.77
+  Std Dev Fitness: 1170.75
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 284 ---
+  Best Fitness: 6000.00
+  Average Fitness: 262.43
+  Std Dev Fitness: 1171.20
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 285 ---
+  Best Fitness: 6000.00
+  Average Fitness: 195.09
+  Std Dev Fitness: 1235.65
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 286 ---
+  Best Fitness: 6000.00
+  Average Fitness: 259.62
+  Std Dev Fitness: 1171.99
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 287 ---
+  Best Fitness: 6000.00
+  Average Fitness: 266.35
+  Std Dev Fitness: 1170.43
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------
+--- Generation 288 ---
+  Best Fitness: 6000.00
+  Average Fitness: 218.11
+  Std Dev Fitness: 1205.34
+  Species Count: 2
+  Best Genome Nodes: 6
+  Best Genome Connections: 20
+  *** New Overall Best Genome Saved ***
+--------------------

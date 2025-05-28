@@ -1,0 +1,1 @@
+python train_neat.py train --generations 10000 --min-fitness-for-random 5000 > train.log 2>&1

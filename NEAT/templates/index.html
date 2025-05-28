@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEAT 训练可视化</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f7f6;
+        color: #333;
+        /* display: flex; */ /* Removed for layout change */
+        /* flex-direction: column; */ /* Removed for layout change */
+        /* align-items: center; */ /* Removed for layout change */
+      }
+
+      .main-layout {
+        display: flex;
+        flex-direction: row;
+        gap: 20px; /* Spacing between columns */
+        width: 100%;
+        max-width: 1600px; /* Adjust max-width as needed */
+        margin: 0 auto; /* Center the layout */
+      }
+
+      .left-column,
+      .right-column {
+        flex-basis: 50%; /* Each column takes up 50% of the width */
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* Spacing between containers within a column */
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 90%; /* Adjusted from 90% for better fit in columns */
+        max-width: 100%; /* Allow container to use full column width */
+        margin-bottom: 20px;
+        box-sizing: border-box; /* Ensure padding doesn't overflow */
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #2c3e50;
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      .checkpoint-list,
+      .analysis-results {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .checkpoint-item {
+        background-color: #ecf0f1;
+        border: 1px solid #bdc3c7;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: transform 0.2s ease;
+      }
+      .checkpoint-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .checkpoint-info span {
+        margin-right: 15px;
+        font-size: 0.95em;
+      }
+      .checkpoint-info .name {
+        font-weight: bold;
+        color: #2980b9;
+      }
+      .checkpoint-info .fitness {
+        font-style: italic;
+        color: #27ae60;
+      }
+
+      .actions button {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: background-color 0.2s ease;
+      }
+      .actions button:hover {
+        background-color: #2980b9;
+      }
+      .actions button.play-btn {
+        background-color: #2ecc71;
+      }
+      .actions button.play-btn:hover {
+        background-color: #27ae60;
+      }
+      /* Style for analyzed button, but not disabling pointer events here */
+      .actions button.analyze-btn.analyzed {
+        background-color: #7f8c8d; /* Slightly different color for "view analysis" */
+      }
+      .actions button.analyze-btn.analyzed:hover {
+        background-color: #6c7a7b;
+      }
+
+      .analysis-image-container {
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        width: 100%; /* Ensure container takes full width */
+        box-sizing: border-box; /* Include padding in width calculation */
+      }
+      .analysis-image-container p {
+        text-align: center;
+        font-style: italic;
+        color: #555;
+      }
+      /* New class for responsive images */
+      .analysis-image {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      #training-stats-chart-container {
+        width: 100%;
+        margin-top: 20px;
+        min-height: 400px; /* Ensure chart has enough space */
+        position: relative; /* For Chart.js responsiveness */
+      }
+      #trainingStatsChart {
+        /* Ensure canvas tries to fill container */
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .generation-slider-container {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .generation-slider-container label {
+        margin-right: 10px;
+        font-weight: bold;
+      }
+      .generation-slider-container input[type="range"] {
+        width: 70%;
+        max-width: 500px;
+        cursor: pointer;
+      }
+      .generation-slider-container #selected-generation-info {
+        margin-top: 10px;
+        font-size: 0.9em;
+        color: #34495e;
+      }
+
+      .status-message {
+        text-align: center;
+        padding: 10px;
+        margin-top: 15px;
+        border-radius: 5px;
+      }
+      .status-message.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      .status-message.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      .status-message.info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border: 1px solid #bee5eb;
+      }
+      .loader {
+        border: 5px solid #f3f3f3; /* Light grey */
+        border-top: 5px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+        margin: 10px auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>NEAT 训练可视化面板</h1>
+
+    <div class="main-layout">
+      <div class="left-column">
+        <div class="container">
+          <h2>训练统计总览</h2>
+          <div id="training-stats-chart-container">
+            <canvas id="trainingStatsChart"></canvas>
+          </div>
+          <div class="generation-slider-container">
+            <label for="generation-slider">选择世代:</label>
+            <input
+              type="range"
+              id="generation-slider"
+              min="0"
+              max="0"
+              value="0"
+            />
+            <span id="generation-value">0</span>
+            <div id="selected-generation-info"></div>
+          </div>
+          <div
+            id="training-stats-status"
+            class="status-message"
+            style="display: none"
+          ></div>
+        </div>
+
+        <div class="container">
+          <h2>Checkpoints</h2>
+          <ul id="checkpoint-list" class="checkpoint-list">
+            <!-- Checkpoints will be loaded here -->
+          </ul>
+          <div
+            id="checkpoints-status"
+            class="status-message"
+            style="display: none"
+          ></div>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="container" id="analysis-section" style="display: none">
+          <h2 id="analysis-title">Checkpoint 分析结果</h2>
+          <div id="analysis-loader" class="loader" style="display: none"></div>
+          <div
+            id="analysis-status"
+            class="status-message"
+            style="display: none"
+          ></div>
+          <div id="analysis-results" class="analysis-results">
+            <!-- Analysis images will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let trainingStatsData = null;
+      let trainingStatsChart = null;
+
+      function renderTrainingStatsChart(maxGen = null) {
+        if (!trainingStatsData || !trainingStatsData.labels) return;
+
+        const ctx = document
+          .getElementById("trainingStatsChart")
+          .getContext("2d");
+
+        let labels = [...trainingStatsData.labels];
+        let bestScores = [...trainingStatsData.datasets[0].data];
+        let avgScores = [...trainingStatsData.datasets[1].data];
+        let stdevScores = [...trainingStatsData.datasets[2].data];
+        let speciesCounts = [...trainingStatsData.datasets[3].data];
+
+        if (maxGen !== null && maxGen < labels.length - 1) {
+          labels = labels.slice(0, maxGen + 1);
+          bestScores = bestScores.slice(0, maxGen + 1);
+          avgScores = avgScores.slice(0, maxGen + 1);
+          stdevScores = stdevScores.slice(0, maxGen + 1);
+          speciesCounts = speciesCounts.slice(0, maxGen + 1);
+        }
+
+        const chartData = {
+          labels: labels,
+          datasets: [
+            {
+              label: "最高适应度",
+              data: bestScores,
+              borderColor: "rgba(75, 192, 192, 1)",
+              backgroundColor: "rgba(75, 192, 192, 0.2)",
+              tension: 0.1,
+              yAxisID: "yFitness",
+              fill: false,
+            },
+            {
+              label: "平均适应度",
+              data: avgScores,
+              borderColor: "rgba(54, 162, 235, 1)",
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+              tension: 0.1,
+              yAxisID: "yFitness",
+              fill: false,
+            },
+            {
+              label: "适应度标准差",
+              data: stdevScores,
+              borderColor: "rgba(255, 159, 64, 1)",
+              backgroundColor: "rgba(255, 159, 64, 0.2)",
+              tension: 0.1,
+              yAxisID: "yFitness",
+              fill: false,
+              hidden: true,
+            },
+            {
+              label: "物种数量",
+              data: speciesCounts,
+              borderColor: "rgba(153, 102, 255, 1)",
+              backgroundColor: "rgba(153, 102, 255, 0.2)",
+              tension: 0.1,
+              yAxisID: "ySpecies",
+              fill: false,
+            },
+          ],
+        };
+
+        if (trainingStatsChart) {
+          trainingStatsChart.data = chartData;
+          trainingStatsChart.update();
+        } else {
+          trainingStatsChart = new Chart(ctx, {
+            type: "line",
+            data: chartData,
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                x: {
+                  title: { display: true, text: "世代" },
+                },
+                yFitness: {
+                  title: { display: true, text: "适应度" },
+                  position: "left",
+                  beginAtZero: false, // Let chart decide based on data, or set true if preferred
+                },
+                ySpecies: {
+                  title: { display: true, text: "物种数量" },
+                  position: "right",
+                  beginAtZero: true,
+                  min: 0,
+                  ticks: {
+                    stepSize: 1,
+                    precision: 0,
+                  },
+                  grid: {
+                    drawOnChartArea: false,
+                  },
+                },
+              },
+              interaction: {
+                mode: "index",
+                intersect: false,
+              },
+              plugins: {
+                tooltip: {
+                  mode: "index",
+                  intersect: false,
+                },
+              },
+            },
+          });
+        }
+        const slider = document.getElementById("generation-slider");
+        const generationValueSpan = document.getElementById("generation-value");
+        if (slider.max === "0" && trainingStatsData.labels.length > 0) {
+          slider.max = trainingStatsData.labels.length - 1;
+          // Set initial slider value to max if desired, or keep at 0
+          // slider.value = trainingStatsData.labels.length - 1;
+          // generationValueSpan.textContent = slider.value;
+        }
+        // Ensure slider value doesn't exceed new max if data shrinks (though unlikely for generations)
+        if (parseInt(slider.value) > labels.length - 1) {
+          slider.value = labels.length - 1;
+          generationValueSpan.textContent = slider.value;
+        }
+      }
+
+      function updateSliderInfo(gen) {
+        const infoDiv = document.getElementById("selected-generation-info");
+        if (
+          trainingStatsData &&
+          trainingStatsData.datasets &&
+          gen < trainingStatsData.labels.length
+        ) {
+          let infoHtml = `<b>第 ${gen} 代:</b> `;
+          const bestFit = trainingStatsData.datasets[0].data[gen];
+          const avgFit = trainingStatsData.datasets[1].data[gen];
+          const speciesCount = trainingStatsData.datasets[3].data[gen];
+
+          infoHtml += `最高适应度: ${
+            bestFit !== undefined && bestFit !== null
+              ? parseFloat(bestFit).toFixed(2)
+              : "N/A"
+          }, `;
+          infoHtml += `平均适应度: ${
+            avgFit !== undefined && avgFit !== null
+              ? parseFloat(avgFit).toFixed(2)
+              : "N/A"
+          }, `;
+          infoHtml += `物种数量: ${speciesCount ?? "N/A"}`;
+          infoDiv.innerHTML = infoHtml;
+        } else {
+          infoDiv.innerHTML = "无此世代数据";
+        }
+      }
+
+      async function fetchTrainingStats() {
+        const statusElement = document.getElementById("training-stats-status");
+        statusElement.innerHTML = '<div class="loader"></div>';
+        statusElement.className = "status-message info";
+        statusElement.style.display = "block";
+
+        try {
+          const response = await fetch("/api/training_stats");
+          const data = await response.json();
+
+          if (data.success) {
+            const generations = data.stats.best_scores.map((_, i) => i);
+            trainingStatsData = {
+              labels: generations,
+              datasets: [
+                { label: "最高适应度", data: data.stats.best_scores },
+                { label: "平均适应度", data: data.stats.avg_scores },
+                { label: "适应度标准差", data: data.stats.stdev_scores },
+                { label: "物种数量", data: data.stats.species_counts },
+              ],
+            };
+            const slider = document.getElementById("generation-slider");
+            const generationValueSpan =
+              document.getElementById("generation-value");
+            if (generations.length > 0) {
+              slider.max = generations.length - 1;
+              // Optionally set slider to the latest generation by default
+              // slider.value = generations.length - 1;
+              // generationValueSpan.textContent = slider.value;
+            } else {
+              slider.max = 0;
+            }
+            // Initial render with full data or up to current slider value
+            renderTrainingStatsChart(parseInt(slider.value));
+            updateSliderInfo(parseInt(slider.value));
+            statusElement.style.display = "none";
+          } else {
+            throw new Error(data.error || "无法加载训练统计数据");
+          }
+        } catch (error) {
+          console.error("Error fetching training stats:", error);
+          statusElement.textContent = `错误: ${error.message}`;
+          statusElement.className = "status-message error";
+          trainingStatsData = null; // Clear data on error
+          renderTrainingStatsChart(); // Attempt to clear or show empty chart
+        }
+      }
+
+      const generationSlider = document.getElementById("generation-slider");
+      const generationValueSpan = document.getElementById("generation-value");
+
+      generationSlider.addEventListener("input", function () {
+        const selectedGen = parseInt(this.value);
+        generationValueSpan.textContent = selectedGen;
+        renderTrainingStatsChart(selectedGen);
+        updateSliderInfo(selectedGen);
+      });
+
+      async function fetchCheckpoints() {
+        const listElement = document.getElementById("checkpoint-list");
+        const statusElement = document.getElementById("checkpoints-status");
+        statusElement.innerHTML = '<div class="loader"></div>';
+        statusElement.className = "status-message info";
+        statusElement.style.display = "block";
+
+        try {
+          const response = await fetch("/api/checkpoints");
+          const data = await response.json();
+          listElement.innerHTML = "";
+
+          if (data.success && data.checkpoints.length > 0) {
+            data.checkpoints.forEach((ckpt) => {
+              const listItem = document.createElement("li");
+              listItem.className = "checkpoint-item";
+              listItem.id = `checkpoint-item-${ckpt.name}`; // Add an ID for easier update
+
+              let fitnessDisplay = "N/A";
+              if (ckpt.fitness && ckpt.fitness.best !== null) {
+                fitnessDisplay = `Best: ${parseFloat(ckpt.fitness.best).toFixed(
+                  2
+                )}`;
+                if (ckpt.fitness.avg !== null) {
+                  fitnessDisplay += `, Avg: ${parseFloat(
+                    ckpt.fitness.avg
+                  ).toFixed(2)}`;
+                }
+              }
+
+              const analyzeButtonText = ckpt.has_analysis ? "查看分析" : "分析";
+              const analyzeButtonClass = ckpt.has_analysis ? "analyzed" : "";
+
+              listItem.innerHTML = `
+                <div class="checkpoint-info">
+                    <span class="name">${ckpt.name}</span>
+                    <span class="number">(Gen: ${ckpt.number})</span>
+                    <span class="fitness">${fitnessDisplay}</span>
+                    <span class="analysis-status">${
+                      ckpt.has_analysis ? "已分析" : "未分析"
+                    }</span>
+                </div>
+                <div class="actions">
+                    <button class="analyze-btn ${analyzeButtonClass}" onclick="analyzeCheckpoint('${
+                ckpt.name
+              }', this)">
+                        ${analyzeButtonText}
+                    </button>
+                    <button class="play-btn" onclick="playCheckpoint('${
+                      ckpt.name
+                    }')">播放</button>
+                </div>`;
+              listElement.appendChild(listItem);
+            });
+            statusElement.style.display = "none";
+          } else if (data.success && data.checkpoints.length === 0) {
+            listElement.innerHTML = "<p>没有找到任何 Checkpoints。</p>";
+            statusElement.style.display = "none";
+          } else {
+            throw new Error(data.error || "无法加载 Checkpoints");
+          }
+        } catch (error) {
+          console.error("Error fetching checkpoints:", error);
+          listElement.innerHTML = "<p>加载 Checkpoints 失败。</p>";
+          statusElement.textContent = `错误: ${error.message}`;
+          statusElement.className = "status-message error";
+        }
+      }
+
+      async function analyzeCheckpoint(checkpointName, button) {
+        const analysisSection = document.getElementById("analysis-section");
+        const resultsDiv = document.getElementById("analysis-results");
+        const analysisTitle = document.getElementById("analysis-title");
+        const statusElement = document.getElementById("analysis-status");
+        const loaderElement = document.getElementById("analysis-loader");
+
+        analysisTitle.textContent = `Checkpoint 分析结果: ${checkpointName}`;
+        analysisSection.style.display = "block";
+        resultsDiv.innerHTML = "";
+
+        loaderElement.style.display = "block";
+        statusElement.style.display = "none";
+
+        const originalButtonText = button.textContent;
+        button.disabled = true;
+        button.textContent = "处理中...";
+
+        try {
+          // Always call analyze_checkpoint; the backend can decide if it needs to re-run or just serve existing.
+          // For this frontend, we assume clicking "分析" or "查看分析" means we want to see the results.
+          // The backend's `api_analyze_checkpoint` is designed to start analysis if not present,
+          // but it doesn't prevent re-triggering. For a "view only if exists" behavior,
+          // we'd need a different endpoint or logic here.
+          // However, the current setup will re-trigger the python script.
+          // If the goal is to *only* view existing, the polling logic for `/api/checkpoint_analysis/`
+          // should be called directly if `button.classList.contains('analyzed')`;
+
+          let shouldFetchExisting = button.classList.contains("analyzed");
+
+          if (!shouldFetchExisting) {
+            const analyzeResponse = await fetch(
+              `/api/analyze_checkpoint/${checkpointName}`
+            );
+            const analyzeData = await analyzeResponse.json();
+
+            if (!analyzeData.success) {
+              throw new Error(analyzeData.error || "启动分析失败");
+            }
+            statusElement.textContent =
+              analyzeData.message + ". 正在等待分析完成并获取结果...";
+            statusElement.className = "status-message info";
+            statusElement.style.display = "block";
+          } else {
+            statusElement.textContent = "正在获取已存在的分析结果...";
+            statusElement.className = "status-message info";
+            statusElement.style.display = "block";
+          }
+
+          let attempts = 0;
+          const maxAttempts = 45; // Poll for 45 * 2s = 90 seconds
+          const pollInterval = 2000;
+
+          const intervalId = setInterval(async () => {
+            attempts++;
+            if (attempts > maxAttempts) {
+              clearInterval(intervalId);
+              loaderElement.style.display = "none";
+              statusElement.textContent = "分析超时或无法获取结果。";
+              statusElement.className = "status-message error";
+              button.textContent = originalButtonText; // Revert button text
+              button.disabled = false;
+              return;
+            }
+
+            try {
+              const resultsResponse = await fetch(
+                `/api/checkpoint_analysis/${checkpointName}`
+              );
+              const resultsData = await resultsResponse.json();
+
+              if (
+                resultsData.success &&
+                resultsData.analysis_files &&
+                resultsData.analysis_files.length > 0
+              ) {
+                clearInterval(intervalId);
+                loaderElement.style.display = "none";
+                statusElement.textContent = "分析结果加载完毕。";
+                statusElement.className = "status-message success";
+                setTimeout(() => {
+                  statusElement.style.display = "none";
+                }, 3000);
+
+                resultsData.analysis_files.forEach((file) => {
+                  const imageContainer = document.createElement("div");
+                  imageContainer.className = "analysis-image-container";
+                  const p = document.createElement("p");
+                  p.textContent = file.description;
+                  imageContainer.appendChild(p);
+
+                  if (file.type === "image") {
+                    const img = document.createElement("img");
+                    img.src = file.path;
+                    img.alt = file.description;
+                    img.className = "analysis-image";
+                    imageContainer.appendChild(img);
+                  }
+                  resultsDiv.appendChild(imageContainer);
+                });
+
+                button.textContent = "查看分析";
+                button.disabled = false;
+                button.classList.add("analyzed");
+
+                const checkpointListItem = document.getElementById(
+                  `checkpoint-item-${checkpointName}`
+                );
+                if (checkpointListItem) {
+                  const statusSpan =
+                    checkpointListItem.querySelector(".analysis-status");
+                  if (statusSpan) statusSpan.textContent = "已分析";
+                  const btnInList =
+                    checkpointListItem.querySelector(".analyze-btn");
+                  if (btnInList) {
+                    btnInList.textContent = "查看分析";
+                    btnInList.classList.add("analyzed");
+                    // No need to disable btnInList, as the main button 'button' refers to it.
+                  }
+                }
+              } else if (
+                resultsData.success &&
+                (!resultsData.analysis_files ||
+                  resultsData.analysis_files.length === 0)
+              ) {
+                statusElement.textContent =
+                  "分析进行中，或尚未生成文件... (尝试 " +
+                  attempts +
+                  "/" +
+                  maxAttempts +
+                  ")";
+              } else if (!resultsData.success) {
+                // This means fetching the analysis_files failed for some reason.
+                console.warn(
+                  "Polling for analysis results failed:",
+                  resultsData.error
+                );
+                if (attempts >= maxAttempts || shouldFetchExisting) {
+                  // If it was supposed to be there, or timeout
+                  clearInterval(intervalId);
+                  loaderElement.style.display = "none";
+                  statusElement.textContent = `获取分析结果失败: ${
+                    resultsData.error || "未知错误"
+                  }`;
+                  statusElement.className = "status-message error";
+                  button.textContent = originalButtonText;
+                  button.disabled = false;
+                } else {
+                  statusElement.textContent =
+                    "获取分析结果时遇到问题，仍在尝试... (尝试 " +
+                    attempts +
+                    "/" +
+                    maxAttempts +
+                    ")";
+                }
+              }
+            } catch (pollError) {
+              console.error("Polling error:", pollError);
+              if (attempts >= maxAttempts) {
+                clearInterval(intervalId);
+                loaderElement.style.display = "none";
+                statusElement.textContent = `获取分析结果时发生网络错误: ${pollError.message}`;
+                statusElement.className = "status-message error";
+                button.textContent = originalButtonText;
+                button.disabled = false;
+              }
+            }
+          }, pollInterval);
+        } catch (error) {
+          console.error("Error in analyzeCheckpoint function:", error);
+          loaderElement.style.display = "none";
+          statusElement.textContent = `错误: ${error.message}`;
+          statusElement.className = "status-message error";
+          button.textContent = originalButtonText;
+          button.disabled = false;
+        }
+      }
+
+      async function playCheckpoint(checkpointName) {
+        const statusElement = document.getElementById("checkpoints-status");
+        statusElement.textContent = `正在尝试使用 ${checkpointName} 启动游戏...`;
+        statusElement.className = "status-message info";
+        statusElement.style.display = "block";
+
+        try {
+          const response = await fetch(
+            `/api/play_checkpoint/${checkpointName}`
+          );
+          const data = await response.json();
+          if (data.success) {
+            statusElement.textContent = data.message;
+            statusElement.className = "status-message success";
+          } else {
+            throw new Error(data.error || "启动游戏失败");
+          }
+        } catch (error) {
+          console.error("Error playing checkpoint:", error);
+          statusElement.textContent = `错误: ${error.message}`;
+          statusElement.className = "status-message error";
+        }
+        setTimeout(() => {
+          statusElement.style.display = "none";
+        }, 5000);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchTrainingStats();
+        fetchCheckpoints();
+        updateSliderInfo(document.getElementById("generation-slider").value);
+      });
+    </script>
+  </body>
+</html>

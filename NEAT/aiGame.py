@@ -11,7 +11,7 @@ import time
 
 # Game主类，支持AI和人类两种模式
 class TRexGame:
-    def __init__(self, human_mode=False):  # , random_seed=DEFAULT_SEED):
+    def __init__(self, human_mode=False, use_fixed_seed=True, random_seed=42):
         pygame.init()
         pygame.font.init()  # Initialize font module
         self.font = pygame.font.Font(None, 36)  # Default font, size 36
@@ -19,9 +19,11 @@ class TRexGame:
         self.speed = 4  # Initial game speed
         self.human_mode = human_mode
         self.score = 0
-        # self.random_seed = random_seed
+        self.use_fixed_seed = use_fixed_seed
+        self.random_seed = random_seed
         # 设置随机种子
-        # seed(self.random_seed)
+        if self.use_fixed_seed:
+            seed(self.random_seed)
         self._init_resources()  # Initializes self.ground_img among others
         self.reset()
 
@@ -97,7 +99,7 @@ class TRexGame:
             list(map(lambda x: x // 2, self.pterodactyl_f2_img.size))
         )
         self.pterodactyl_sprites = [self.pterodactyl_f1_img, self.pterodactyl_f2_img]
-        self.bird_altitudes = [115 - 30, 115 - 15, 115 + 10]
+        self.bird_altitudes = [115 - 35, 115 - 15, 115 + 10]
 
         self.all_obstacle_types = self.cactus_obstacles + self.pterodactyl_sprites
 
@@ -108,7 +110,7 @@ class TRexGame:
 
     def reset(self):
         # 重置随机种子，确保每次重置后生成的地图相同
-        # seed(self.random_seed)
+        seed(self.random_seed)
 
         # 鸟计数器，每3个鸟强制生成一个高飞鸟
         self.bird_counter = 0
@@ -213,6 +215,11 @@ class TRexGame:
         """
         生成障碍物，保证每个障碍物都能通过：
         """
+        PRINT_BIRD = False  # 是否打印鸟的生成信息
+        # if self.score >= 128:
+        #     import code
+
+        #     code.interact(local=locals())
         max_attempts = 20
         jump_height = 90
         player_x = 5
@@ -244,17 +251,28 @@ class TRexGame:
                 if obs_img.width > max_jump_horiz_dist:
                     continue
                 if not crouch_rect.colliderect(obs_rect) or not jump_rect.colliderect(obs_rect):
-                    return {"x": x_pos, "y": y_pos, "img": obs_img, "is_bird": True, "passed": False}
+                    ret = {"x": x_pos, "y": y_pos, "img": obs_img, "is_bird": True, "passed": False}
+                    if PRINT_BIRD:
+                        print(f"Spawned: {ret}")
+                    return ret
             else:
                 if chosen_obj_img in self.large_cactus_group:
                     y_pos = 115
                 obs_img = chosen_obj_img
                 # 仙人掌高度不能超过最大跳跃高度，宽度不能超过最大允许宽度
                 if obs_img.height + (115 - y_pos) < jump_height + 10 and obs_img.width <= max_cactus_width:
-                    return {"x": x_pos, "y": y_pos, "img": obs_img, "is_bird": False, "passed": False}
+                    ret = {"x": x_pos, "y": y_pos, "img": obs_img, "is_bird": False, "passed": False}
+                    if PRINT_BIRD:
+                        print(f"Spawned: {ret}")
+                    return ret
+
         # 如果多次尝试都失败，则生成一个默认的小仙人掌（肯定可通过）
         default_obstacle = self.obstacle1_img
-        return {"x": x_pos, "y": 130, "img": default_obstacle, "is_bird": False, "passed": False}
+
+        ret = {"x": x_pos, "y": 130, "img": default_obstacle, "is_bird": False, "passed": False}
+        if PRINT_BIRD:
+            print(f"Spawned: {ret}")
+        return ret
 
     def _spawn_initial_obstacles(self):
         self.active_obstacles = []
@@ -294,6 +312,7 @@ class TRexGame:
         }
 
     def step(self, action):
+
         if self.done:
             return self.get_state(), 0, self.done
 
@@ -319,7 +338,7 @@ class TRexGame:
             reward = -1
         else:
             for obs in self.active_obstacles:
-                if obs["x"] < 5 and not obs["passed"]:
+                if obs["x"] < 5 - obs["img"].width and not obs["passed"]:
                     reward += 10
                     obs["passed"] = True
 
@@ -370,7 +389,7 @@ class TRexGame:
 
         if self.is_jumping or self.player_y < 110:
             self.player_y += self.vertical_velocity
-            fall_speed = 0.8  # Changed from 0.6 to 0.9
+            fall_speed = 0.7  # Changed from 0.6 to 0.9
             if self.fast_fall:
                 fall_speed *= 3
             self.vertical_velocity += fall_speed
@@ -420,6 +439,9 @@ class TRexGame:
             else:
                 self.score += 10  # This score increment should perhaps be based on player passing it, not it going off-screen for AI.
                 # For human mode this is one way to do it. Already handled for AI in step().
+
+            if obs["x"] < 0:
+                obs["passed"] = True
         self.active_obstacles = new_obstacles
 
         while len(self.active_obstacles) < 3:
@@ -476,6 +498,21 @@ class TRexGame:
 
         score_text = self.font.render(f"Score: {int(self.score)}", True, (0, 0, 0))
         self.gameDisplay.blit(score_text, (450, 10))
+
+        if self.active_obstacles:
+            obs1 = self.active_obstacles[0]
+            player_x_pos = 5  # Player's fixed x position
+            obs1_dist_x = obs1["x"] - player_x_pos
+            obs1_height = obs1["img"].height
+            obs1_type_char = "Bird" if obs1["is_bird"] else "Cactus"
+
+            obs1_info_str = f"Obs1: D:{int(obs1_dist_x)} H:{int(obs1_height)} {obs1_type_char} Passed: {obs1["passed"]}"
+            obs1_info_surface = self.small_font.render(obs1_info_str, True, (0, 0, 0))
+
+            # Position below the score
+            score_text_height = score_text.get_height()
+            obs1_info_pos_y = 10 + score_text_height + 2  # 2px padding
+            self.gameDisplay.blit(obs1_info_surface, (250, obs1_info_pos_y))
 
         if self.done and self.display_game_over_screen:
             game_over_text = self.font.render("Game Over!", True, (200, 0, 0))
