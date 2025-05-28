@@ -148,6 +148,22 @@ class PPOAgent:
         self.replay_buffer = ReplayMemory()
         self.mse_loss = nn.MSELoss()
 
+    def save_model(self, actor_path, critic_path):
+        torch.save(self.actor.state_dict(), actor_path)
+        torch.save(self.critic.state_dict(), critic_path)
+        # Consider saving optimizer states as well for robust checkpointing
+        # torch.save(self.actor_optimizer.state_dict(), actor_path + "_optimizer")
+        # torch.save(self.critic_optimizer.state_dict(), critic_path + "_optimizer")
+
+    def load_model(self, actor_path, critic_path):
+        self.actor.load_state_dict(torch.load(actor_path, map_location=self.device))
+        self.critic.load_state_dict(torch.load(critic_path, map_location=self.device))
+        self.old_actor.load_state_dict(self.actor.state_dict())  # Sync old_actor
+        self.old_actor.eval()
+        # Consider loading optimizer states as well
+        # self.actor_optimizer.load_state_dict(torch.load(actor_path + "_optimizer", map_location=self.device))
+        # self.critic_optimizer.load_state_dict(torch.load(critic_path + "_optimizer", map_location=self.device))
+
     def get_action(self, state, evaluate=False):
         if not isinstance(state, np.ndarray):
             state = np.array(state, dtype=np.float32)
@@ -270,11 +286,15 @@ class PPOAgent:
     def save_model(self, actor_path, critic_path):
         torch.save(self.actor.state_dict(), actor_path)
         torch.save(self.critic.state_dict(), critic_path)
+        # Consider saving optimizer states as well for robust checkpointing
+        # torch.save(self.actor_optimizer.state_dict(), actor_path + "_optimizer")
+        # torch.save(self.critic_optimizer.state_dict(), critic_path + "_optimizer")
 
     def load_model(self, actor_path, critic_path):
         self.actor.load_state_dict(torch.load(actor_path, map_location=self.device))
         self.critic.load_state_dict(torch.load(critic_path, map_location=self.device))
-        self.old_actor.load_state_dict(self.actor.state_dict())
-        self.actor.eval()
-        self.critic.eval()
+        self.old_actor.load_state_dict(self.actor.state_dict())  # Sync old_actor
         self.old_actor.eval()
+        # Consider loading optimizer states as well
+        # self.actor_optimizer.load_state_dict(torch.load(actor_path + "_optimizer", map_location=self.device))
+        # self.critic_optimizer.load_state_dict(torch.load(critic_path + "_optimizer", map_location=self.device))

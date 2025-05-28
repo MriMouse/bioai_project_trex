@@ -30,9 +30,12 @@ ENTROPY_DECAY = True
 MAX_GRAD_NORM = 0.5
 
 MAX_EPISODES = 10000
-SAVE_INTERVAL = 100  # Save model every 100 episodes
+SAVE_INTERVAL = 500  # Save model every 100 episodes
 MODEL_PATH = "./trex_ppo_models"
 LOG_INTERVAL = 10  # Print stats every 10 episodes
+LOAD_MODEL = True  # Flag to load a pre-trained model
+BEST_MODEL_ACTOR_PATH = os.path.join(MODEL_PATH, "actor_best.pkl")
+BEST_MODEL_CRITIC_PATH = os.path.join(MODEL_PATH, "critic_best.pkl")
 
 # Create model directory if it doesn't exist
 if not os.path.exists(MODEL_PATH):
@@ -88,7 +91,7 @@ def normalize_state(state_dict):
 
 
 def main():
-    env = TRexGame(human_mode=False)
+    env = TRexGame(human_mode=False, use_fixed_seed=True)
     agent = PPOAgent(
         state_dim=STATE_DIM,
         action_dim=ACTION_DIM,
@@ -110,13 +113,27 @@ def main():
         max_grad_norm=MAX_GRAD_NORM,
     )
 
-    global_timestep_counter = 0
-    best_avg_score = -float("inf")
+    start_episode = 1
+    if LOAD_MODEL and os.path.exists(BEST_MODEL_ACTOR_PATH) and os.path.exists(BEST_MODEL_CRITIC_PATH):
+        try:
+            agent.load_model(BEST_MODEL_ACTOR_PATH, BEST_MODEL_CRITIC_PATH)
+            print(f"成功加载模型: {BEST_MODEL_ACTOR_PATH} 和 {BEST_MODEL_CRITIC_PATH}")
+            # Potentially load other training states like episode number, optimizer states, etc.
+            # For simplicity, we'll just load model weights here.
+            # If you saved episode number, you could set:
+            # start_episode = loaded_episode_number + 1
+        except Exception as e:
+            print(f"加载模型失败: {e}. 将从头开始训练。")
+    else:
+        print("未找到预训练模型或LOAD_MODEL为False。将从头开始训练。")
+
+    global_timestep_counter = 0  # Should be loaded if continuing training properly
+    best_avg_score = -float("inf")  # Should be loaded if continuing training
     episode_rewards_deque = deque(maxlen=100)  # For calculating average score over last 100 episodes
 
     start_time = time.time()
 
-    for episode in range(1, MAX_EPISODES + 1):
+    for episode in range(start_episode, MAX_EPISODES + 1):
         state_dict = env.reset()
         current_state = normalize_state(state_dict)
         episode_reward = 0
