@@ -42,25 +42,14 @@ def eval_genomes(genomes, config, fixed_seed_enabled=True):
             overlap_threshold = 5 + (state["obs1_width"] if state["obs1_is_bird"] else 0)  # 判定重合的距离阈值
 
             # 检查第一个障碍物
-            if state["obs1_is_bird"] and (abs(state["obs1_dist_x"]) < overlap_threshold):
+            if state["obs1_is_bird"] and abs(state["obs1_dist_x"]) < overlap_threshold and action == 0:
                 bird_y = state["obs1_y"]
                 if bird_y <= 85:  # 高飞的鸟应该蹲下通过
-                    if action == 1:
-                        bird_penalty -= 20  # 让你蹲你不准跳
-                    elif action == 0:
-                        bird_penalty -= 10
-                    elif action == 2:
-                        bird_penalty += 0  # 跳起来大大有赏
-                elif bird_y >= 125:  # 低飞的鸟应该跳跃通过
-                    if action == 2:
-                        bird_penalty -= 20  # 让你跳你不准蹲
-                    elif action == 0:
-                        bird_penalty -= 10
-                    elif action == 1:
-                        bird_penalty += 0  # 蹲起来大大有赏
+                    bird_penalty -= 10
+                elif bird_y > 95:  # 低飞的鸟应该跳跃通过
+                    bird_penalty -= 10
                 else:  # 中等高度的鸟，蹲或跳都可以
-                    if action == 0:
-                        bird_penalty -= 10  # 干点啥都行你别不干
+                    bird_penalty -= 5
 
             # # 检查第二个障碍物
             # if state["obs2_is_bird"] and abs(state["obs2_dist_x"]) < overlap_threshold and action == 0:

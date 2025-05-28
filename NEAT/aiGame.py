@@ -11,7 +11,7 @@ import time
 
 # Game主类，支持AI和人类两种模式
 class TRexGame:
-    def __init__(self, human_mode=False, use_fixed_seed=True, random_seed=42):
+    def __init__(self, human_mode=False, use_fixed_seed=True, random_seed=41):
         pygame.init()
         pygame.font.init()  # Initialize font module
         self.font = pygame.font.Font(None, 36)  # Default font, size 36
@@ -389,7 +389,7 @@ class TRexGame:
 
         if self.is_jumping or self.player_y < 110:
             self.player_y += self.vertical_velocity
-            fall_speed = 0.7  # Changed from 0.6 to 0.9
+            fall_speed = 0.8  # Changed from 0.6 to 0.9
             if self.fast_fall:
                 fall_speed *= 3
             self.vertical_velocity += fall_speed
