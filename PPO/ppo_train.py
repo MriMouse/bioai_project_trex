@@ -29,7 +29,7 @@ FINAL_ENTROPY_COEF = 0.001
 ENTROPY_DECAY = True
 MAX_GRAD_NORM = 0.5
 
-MAX_EPISODES = 10000
+MAX_EPISODES = 1000
 SAVE_INTERVAL = 500  # Save model every 100 episodes
 MODEL_PATH = "./trex_ppo_models"
 LOG_INTERVAL = 10  # Print stats every 10 episodes

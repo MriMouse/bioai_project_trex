@@ -13,7 +13,7 @@ ACTION_DIM = 3  # Must match the training configuration
 HIDDEN_DIM = 256  # Must match the training configuration
 
 MODEL_DIR = "./trex_ppo_models"  # Directory where models are saved
-CKTAG = "ep1000"
+CKTAG = "best"
 ACTOR_MODEL_FILE = f"actor_{CKTAG}.pkl"  # "actor_epISODE_NUM.pkl" or "actor_best.pkl"
 CRITIC_MODEL_FILE = f"critic_{CKTAG}.pkl"  # "critic_epISODE_NUM.pkl" or "critic_best.pkl"
 

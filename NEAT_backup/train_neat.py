@@ -47,7 +47,7 @@ def eval_genomes(genomes, config, fixed_seed_enabled=True):
                 if bird_y <= 85:  # 高飞的鸟应该蹲下通过
                     if action == 1:
                         bird_penalty -= 20  # 让你蹲你不准跳
-                    elif action == 0:
+                    elif action == 0:  # d
                         bird_penalty -= 10
                     elif action == 2:
                         bird_penalty += 0  # 跳起来大大有赏
